@@ -3,7 +3,7 @@ import React from 'react';
 
 const head = () => (
   <>
-    <title>Monkey Management | Home</title>
+    <title>Monkey Management | Blogs</title>
     <Head />
   </>
 );
