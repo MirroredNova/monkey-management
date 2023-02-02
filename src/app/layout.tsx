@@ -1,6 +1,6 @@
 import './globals.css';
 import React from 'react';
-import Nav from '@/components/layout/Nav/Nav';
+import Nav from '@/components/layout/nav/nav';
 
 export default function RootLayout({
   children

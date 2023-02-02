@@ -1,4 +1,4 @@
-import Head from '@/components/layout/Head';
+import Head from '@/components/head';
 import React from 'react';
 
 const head = () => (

@@ -2,9 +2,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(54, 64, 55);
+  color: rgb(242, 243, 242);
+  height: 70px;
+  padding: 0 150px;
 }
 
-.navbar ul {
+.navlist {
   display: flex;
   flex-direction: row;
+}
+
+.navlist li {
+  margin: 10px;
+}
+
+.navlist li a {
+  text-decoration: none;
+  color: rgb(242, 243, 242);
+}
+
+.navlist li a:hover {
+  color: rgb(244, 222, 201);
+}
+
+.navtitle {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  color: rgb(244, 222, 201);
+}
+
+.navtitle div {
+  padding: 10px;
+}
+
+.navtitle h1 {
+  font-size: x-large;
+}
+
+.navsvg {
+  width: 50px;
+  height: 50px;
 }
