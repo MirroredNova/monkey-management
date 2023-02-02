@@ -30,8 +30,6 @@
     "import/extensions": "off",
     "no-console": "off",
     "no-underscore-dangle": "off",
-    "linebreak-style": ["error", "unix"],
-    "prettier/prettier": 2
+    "prettier/prettier": 0
   }
 }
-
