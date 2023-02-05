@@ -1,47 +1,54 @@
-.navbar {
+.navBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(54, 64, 55);
-  color: rgb(242, 243, 242);
   height: 70px;
-  padding: 0 150px;
+  padding: 0 70px;
 }
 
-.navlist {
+.navList {
   display: flex;
   flex-direction: row;
+  color: rgb(242, 243, 242);
 }
 
-.navlist li {
+.navList li {
   margin: 10px;
 }
 
-.navlist li a {
+.navList a {
   text-decoration: none;
   color: rgb(242, 243, 242);
 }
 
-.navlist li a:hover {
+.navList a:hover {
   color: rgb(244, 222, 201);
 }
 
-.navtitle {
+.navTitle {
   margin: 10px;
   display: flex;
   align-items: center;
   color: rgb(244, 222, 201);
 }
 
-.navtitle div {
+.navTitle div {
   padding: 10px;
 }
 
-.navtitle h1 {
-  font-size: x-large;
+.navTitleHeader span {
+  font-size: 30px;
+  font-family: initial;
+  font-weight: bolder;
 }
 
-.navsvg {
+.navTitleHeader a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navTitleSvg {
   width: 50px;
   height: 50px;
 }

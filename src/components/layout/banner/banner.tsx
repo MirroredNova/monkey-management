@@ -1,5 +1,12 @@
 import React from 'react';
+import styles from './banner.module.css';
 
-const banner = () => <div>banner</div>;
+const Banner = () => (
+  <section>
+    <div className={styles.bannerContainer}>
+      <video src={'/bannerVideo.mp4'} autoPlay loop muted />
+    </div>
+  </section>
+);
 
-export default banner;
+export default Banner;
