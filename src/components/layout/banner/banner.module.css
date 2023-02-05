@@ -6,3 +6,34 @@
   top: -300px;
   z-index: -100;
 }
+
+.bannerWelcome {
+  position: absolute;
+  color: white;
+  background-color: rgb(151, 108, 66);
+  width: 200px;
+  left: 100px;
+  text-align: center;
+  padding: 24px 10px;
+}
+
+.bannerWelcome h2 {
+  padding: 10px 0;
+  font-size: 30px;
+  font-family: initial;
+  font-weight: bolder;
+}
+
+.bannerWelcome p {
+  font-size: 20px;
+}
+
+.bannerWelcomeImage {
+  display: inline-block;
+  width: 144px;
+  height: 144px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border-radius: 100%;
+}

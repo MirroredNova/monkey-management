@@ -1,5 +1,6 @@
 import Banner from '@/components/layout/banner/banner';
 import FeaturedPosts from '@/components/layout/featured/featuredPosts';
+import RecentPosts from '@/components/layout/recent/recentPosts';
 import React from 'react';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main>
       <Banner />
       <FeaturedPosts />
+      <RecentPosts />
     </main>
   );
 }

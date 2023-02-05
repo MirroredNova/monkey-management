@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './featuredPosts.module.css';
+import styles from './recentPosts.module.css';
 
-const FeaturedPosts = () => (
+const RecentPosts = () => (
   <section className={styles.container}>
     <div className={styles.body}>
       <div className={styles.title}>
-        <h2>Featured Post</h2>
+        <h2>Recent Post</h2>
       </div>
       <div className={styles.content}>
         <h3>Check back soon</h3>
@@ -15,4 +15,4 @@ const FeaturedPosts = () => (
   </section>
 );
 
-export default FeaturedPosts;
+export default RecentPosts;
