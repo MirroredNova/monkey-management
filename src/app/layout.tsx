@@ -1,6 +1,7 @@
 import './globals.css';
 import React from 'react';
 import Nav from '@/components/layout/nav/nav';
+import Footer from '@/components/layout/footer/footer';
 
 export default function RootLayout({
   children
@@ -15,8 +16,13 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Nav />
-        {children}
+        <div className="content">
+          <Nav />
+          {children}
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </body>
     </html>
   );

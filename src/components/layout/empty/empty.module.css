@@ -1,0 +1,10 @@
+.content {
+  display: grid;
+  text-align: center;
+  grid-gap: 24px;
+  padding: 36px 30px;
+}
+
+.content h3 {
+  font-size: 28px;
+}

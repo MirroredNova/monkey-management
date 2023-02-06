@@ -1,4 +1,5 @@
 import React from 'react';
+import Empty from '../empty/empty';
 import styles from './featuredPosts.module.css';
 
 const FeaturedPosts = () => (
@@ -7,9 +8,8 @@ const FeaturedPosts = () => (
       <div className={styles.title}>
         <h2>Featured Post</h2>
       </div>
-      <div className={styles.content}>
-        <h3>Check back soon</h3>
-        <p>Once posts are published, you{"'"}ll see them here.</p>
+      <div>
+        <Empty />
       </div>
     </div>
   </section>

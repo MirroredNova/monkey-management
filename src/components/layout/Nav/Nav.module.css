@@ -5,6 +5,47 @@
   background-color: rgb(54, 64, 55);
   height: 70px;
   padding: 0 70px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.searchBar {
+  display: flex;
+}
+
+.searchBar input {
+  display: block;
+  color: white;
+  font-size: 15px;
+  padding: 10px 10px 10px 21px;
+  border-radius: 0px;
+  background-color: rgb(54, 64, 55);
+  border: 1.5px solid white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.searchBar input:focus {
+  outline: none;
+  border: 2px solid white;
+}
+
+.searchBar button {
+  margin-left: 5px;
+  background-color: transparent;
+  border: none;
+}
+
+.searchBar button svg {
+  width: 20px;
+  color: white;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .navList {
@@ -24,31 +65,4 @@
 
 .navList a:hover {
   color: rgb(244, 222, 201);
-}
-
-.navTitle {
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  color: rgb(244, 222, 201);
-}
-
-.navTitle div {
-  padding: 10px;
-}
-
-.navTitleHeader span {
-  font-size: 30px;
-  font-family: initial;
-  font-weight: bolder;
-}
-
-.navTitleHeader a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.navTitleSvg {
-  width: 50px;
-  height: 50px;
 }

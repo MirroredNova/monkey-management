@@ -1,37 +1,35 @@
-import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 import React from 'react';
+import SiteTitle from '../siteTitle/siteTitle';
 import styles from './nav.module.css';
 
 const Nav = () => (
   <nav className={styles.navBar}>
-    <div className={styles.navTitle}>
-      <div className={styles.navTitleSvg}>
-        <a href="/">
-          <Image src="/header.svg" alt="headerImage" width={50} height={50} />
-        </a>
-      </div>
-      <div className={styles.navTitleHeader}>
-        <a href="/">
-          <span>Monkey Management</span>
-        </a>
-      </div>
+    <SiteTitle />
+    <div className={styles.searchBar}>
+      <input placeholder="Search...." />
+      <button type="button">
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
+      </button>
     </div>
     <div>
       <ul className={styles.navList}>
         <li>
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
         </li>
         <li>
-          <a href="/blogs">Blogs</a>
+          <Link href="/blogs">Blogs</Link>
         </li>
         <li>
-          <a href="/about">About Me</a>
+          <Link href="/about">About Me</Link>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+          <Link href="/contact">Contact</Link>
         </li>
         <li>
-          <a href="/projects">Projects</a>
+          <Link href="/projects">Projects</Link>
         </li>
       </ul>
     </div>

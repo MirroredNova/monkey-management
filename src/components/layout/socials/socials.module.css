@@ -1,0 +1,18 @@
+.container {
+  position: fixed;
+  width: 20px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(151, 108, 66);
+  color: white;
+  display: grid;
+  grid-gap: 18px;
+  padding: 10px 5px;
+  opacity: 90%;
+}
+
+.container a {
+  text-decoration: none;
+  color: white;
+}
