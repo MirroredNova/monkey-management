@@ -21,9 +21,6 @@ const Footer = () => (
             <Link href="/about">About Me</Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
-          </li>
-          <li>
             <Link href="/projects">Projects</Link>
           </li>
         </ul>
@@ -34,7 +31,7 @@ const Footer = () => (
         <button>Subscribe</button>
       </div>
       <div className={styles.tag}>
-        <p>© 2023 Monkey Management. Created by Jacob Duchac</p>
+        <p>© 2023 Monkey Management. Created for Jacob Duchac</p>
       </div>
     </div>
   </div>

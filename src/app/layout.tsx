@@ -3,26 +3,22 @@ import React from 'react';
 import Nav from '@/components/layout/nav/nav';
 import Footer from '@/components/layout/footer/footer';
 
-export default function RootLayout({
-  children
-}: {
+type Props = {
   children: React.ReactNode;
-}) {
+};
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
       <body>
-        <div className="content">
+        <header>
           <Nav />
-          {children}
-        </div>
-        <div className="footer">
+        </header>
+        <main className="content">{children}</main>
+        <footer className="footer">
           <Footer />
-        </div>
+        </footer>
       </body>
     </html>
   );

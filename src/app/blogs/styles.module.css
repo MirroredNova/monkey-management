@@ -1,0 +1,14 @@
+.blogContainer {
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: auto 940px auto;
+}
+
+.blogContainer > div {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.content {
+  border: 1px solid lightgrey;
+}
