@@ -9,8 +9,8 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: rgb(54, 64, 55);
-  color: white;
+  background-color: var(--dark);
+  color: var(--light);
   width: 940px;
   margin-top: -122px;
   padding: 24px 48px;

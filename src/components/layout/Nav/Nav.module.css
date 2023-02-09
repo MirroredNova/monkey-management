@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(54, 64, 55);
+  background-color: var(--dark);
   height: 70px;
   padding: 0 70px;
   position: fixed;
@@ -19,12 +19,12 @@
 
 .searchBar input {
   display: block;
-  color: white;
+  color: var(--light);
   font-size: 15px;
   padding: 10px 10px 10px 21px;
   border-radius: 0px;
-  background-color: rgb(54, 64, 55);
-  border: 1.5px solid white;
+  background-color: var(--dark);
+  border: 1.5px solid var(--light);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -32,7 +32,7 @@
 
 .searchBar input:focus {
   outline: none;
-  border: 2px solid white;
+  border: 2px solid var(--light);
 }
 
 .searchBar button {
@@ -43,7 +43,7 @@
 
 .searchBar button svg {
   width: 20px;
-  color: white;
+  color: var(--light);
   vertical-align: middle;
   line-height: normal;
 }
@@ -51,7 +51,7 @@
 .navList {
   display: flex;
   flex-direction: row;
-  color: rgb(242, 243, 242);
+  color: var(--light);
 }
 
 .navList li {
@@ -60,9 +60,9 @@
 
 .navList a {
   text-decoration: none;
-  color: rgb(242, 243, 242);
+  color: var(--light);
 }
 
 .navList a:hover {
-  color: rgb(244, 222, 201);
+  color: var(--secondary);
 }

@@ -12,8 +12,8 @@
 
 .bannerWelcome {
   position: absolute;
-  color: white;
-  background-color: rgb(151, 108, 66);
+  color: var(--light);
+  background-color: var(--primary);
   width: 200px;
   top: 70px;
   left: 100px;
@@ -24,7 +24,7 @@
 
 .bannerWelcome a {
   text-decoration: none;
-  color: rgb(242, 243, 242);
+  color: var(--light);
 }
 
 .bannerWelcome h2 {

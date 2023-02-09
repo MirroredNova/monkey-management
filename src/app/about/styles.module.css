@@ -1,7 +1,7 @@
 .aboutContainer {
   padding-top: 70px;
-  display: grid;
-  grid-template-columns: auto 940px auto;
+  width: 80%;
+  margin: auto;
 }
 
 .aboutContainer > div {
@@ -10,4 +10,51 @@
 }
 
 .content {
+  padding-top: 36px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 100%;
+  height: 600px;
+}
+
+.content > * {
+  border: 1px solid var(--dark);
+}
+
+.content > *:nth-child(odd) {
+  border-right: none;
+}
+
+.textContainer {
+  padding: 25px;
+  background-color: var(--primary);
+  color: var(--light);
+  display: grid;
+}
+
+.text {
+  width: 430px;
+  margin: auto;
+}
+
+.text > h3 {
+  font-size: 36px;
+  font-family: initial;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+
+.text > p {
+  line-height: 1.5em;
+  font-size: 15px;
+}
+
+.text > span {
+  display: block;
+}
+
+.image > img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 30% 50%;
 }

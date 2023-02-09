@@ -4,8 +4,8 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgb(151, 108, 66);
-  color: white;
+  background-color: var(--primary);
+  color: var(--light);
   display: grid;
   grid-gap: 18px;
   padding: 10px 5px;
@@ -14,5 +14,5 @@
 
 .container a {
   text-decoration: none;
-  color: white;
+  color: var(--light);
 }
