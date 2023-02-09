@@ -1,6 +1,6 @@
 .aboutContainer {
-  padding-top: 70px;
   width: 80%;
+  padding: 70px 0;
   margin: auto;
 }
 
@@ -18,11 +18,7 @@
 }
 
 .content > * {
-  border: 1px solid var(--dark);
-}
-
-.content > *:nth-child(odd) {
-  border-right: none;
+  outline: 1px solid var(--dark);
 }
 
 .textContainer {
