@@ -1,0 +1,47 @@
+.cardContainer {
+  display: grid;
+}
+
+.imageContainer {
+  width: 594px;
+  height: 404px;
+  position: relative;
+  left: 0px;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.textContainer {
+  position: relative;
+  margin: 64px 0px 57px 0;
+  left: 244px;
+  grid-area: 1 / 1 / 2 / 2;
+  width: 270px;
+  background-color: white;
+  padding: 36px;
+  display: grid;
+}
+
+.textContainer > h2 {
+  font-size: 26px;
+  font-family: initial;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.textContainer > p {
+  font-size: 14px;
+  line-height: 20px;
+  justify-self: center;
+  align-self: center;
+}
+
+.textContainer > a {
+  justify-self: start;
+  align-self: end;
+  text-align: center;
+  outline: 1px solid var(--primary);
+  height: 39px;
+  width: 116px;
+  color: var(--primary);
+  line-height: 39px;
+}
