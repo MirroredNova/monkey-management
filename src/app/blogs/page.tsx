@@ -3,6 +3,10 @@ import PageTitle from '@/components/layout/pageTitle/pageTitle';
 import React from 'react';
 import styles from './styles.module.css';
 
+export const metadata = {
+  title: 'Blogs'
+};
+
 const page = () => (
   <div className={styles.blogContainer}>
     <PageTitle>Blog</PageTitle>

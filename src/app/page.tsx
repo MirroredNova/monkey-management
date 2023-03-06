@@ -4,7 +4,7 @@ import RecentPosts from '@/components/layout/recent/recentPosts';
 import Socials from '@/components/home/socials/socials';
 import React from 'react';
 
-export default function Home() {
+export default function Projects() {
   return (
     <main>
       <Banner />

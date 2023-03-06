@@ -3,6 +3,10 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './styles.module.css';
 
+export const metadata = {
+  title: 'About'
+};
+
 const page = () => (
   <div className={styles.aboutContainer}>
     <PageTitle>About Me</PageTitle>

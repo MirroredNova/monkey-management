@@ -7,6 +7,13 @@ type Props = {
   children: React.ReactNode;
 };
 
+export const metadata = {
+  title: {
+    default: 'Monkey Management',
+    template: '%s | Monkey Management'
+  }
+};
+
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
