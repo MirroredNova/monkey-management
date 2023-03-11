@@ -146,5 +146,6 @@ body {
   --primary: rgb(151, 108, 66);
   --secondary: rgb(244, 222, 201);
   --dark: rgb(54, 64, 55);
+  --middle: rgb(139, 156, 141);
   --light: rgb(242, 243, 242);
 }

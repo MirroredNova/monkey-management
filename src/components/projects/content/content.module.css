@@ -1,0 +1,50 @@
+.contentContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.contentWrapper {
+  margin-top: -100px;
+  background-color: white;
+  width: 980px;
+}
+
+.content {
+  margin: 42px;
+  display: grid;
+  grid-template-columns: 680px;
+  justify-content: center;
+  row-gap: 50px;
+}
+
+.content a {
+  text-decoration: none;
+  color: var(--dark);
+  transition: color 0.2s ease-in;
+}
+
+.content a:hover {
+  color: var(--middle);
+}
+
+.content > h1 {
+  font-size: 50px;
+  font-family: initial;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.content > h3 {
+  font-size: 32px;
+  font-family: initial;
+  color: var(--dark);
+}
+
+.content > p {
+  line-height: 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

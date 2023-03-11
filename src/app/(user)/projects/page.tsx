@@ -1,5 +1,5 @@
 import PageTitle from '@/components/layout/pageTitle/pageTitle';
-import ProjectCard from '@/components/projects/projectCard/projectCard';
+import ProjectCard from '@/components/projects/card/card';
 import React from 'react';
 import styles from './styles.module.css';
 

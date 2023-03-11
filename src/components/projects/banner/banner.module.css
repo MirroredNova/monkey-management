@@ -1,0 +1,9 @@
+.bannerContainer {
+  margin-top: 70px;
+}
+
+.bannerContainer > img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}

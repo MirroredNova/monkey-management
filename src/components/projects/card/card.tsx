@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import styles from './projectCard.module.css';
+import styles from './card.module.css';
 
 const ProjectCard = () => (
   <div className={styles.cardContainer}>
@@ -19,7 +19,7 @@ const ProjectCard = () => (
         This is placeholder text. To change this content, double-click on the
         element and click Change Content.
       </p>
-      <Link href="/projects">Read More</Link>
+      <Link href="/projects/a">Read More</Link>
     </div>
   </div>
 );

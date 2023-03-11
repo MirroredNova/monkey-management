@@ -1,4 +1,4 @@
-import './globals.css';
+import '../globals.css';
 import React from 'react';
 import Footer from '@/components/layout/footer/footer';
 import Nav from '@/components/layout/nav/nav';
