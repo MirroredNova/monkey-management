@@ -1,0 +1,22 @@
+.formContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 300px;
+}
+
+.formWrapper {
+  padding: 24px 16px;
+  background-color: var(--light);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  display: grid;
+  gap: 15px;
+  text-align: center;
+}
+
+.formWrapper > h1 {
+  font-size: 42px;
+  font-family: initial;
+}

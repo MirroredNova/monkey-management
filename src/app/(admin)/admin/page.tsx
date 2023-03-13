@@ -1,15 +1,30 @@
-import React from 'react';
+'use client';
+
+import Dashboard from '@/components/admin/dashboard/dashboard';
+import LoginForm from '@/components/admin/loginForm/loginForm';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 
-const page = () => (
-  <div className={styles.formContainer}>
-    <div className={styles.formWrapper}>
-      <h1>Admin Login</h1>
-      <input placeholder="Username" />
-      <input placeholder="Password" />
-      <button>Submit</button>
-    </div>
-  </div>
-);
+const Page = () => {
+  const [authenticated, setAuthenticated] = useState(true);
 
-export default page;
+  const setAuthenticatedValue = (value: boolean) => {
+    setAuthenticated(value);
+  };
+
+  return (
+    <main>
+      {authenticated ? (
+        <div>
+          <Dashboard />
+        </div>
+      ) : (
+        <div>
+          <LoginForm setAuthenticatedValue={setAuthenticatedValue} />
+        </div>
+      )}
+    </main>
+  );
+};
+
+export default Page;
