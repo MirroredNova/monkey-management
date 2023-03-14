@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import BlogsTab from './blogsTab/blogsTab';
+import ProjectsTab from './projectsTab/projectsTab';
+import styles from './dashboard.module.css';
 
 type TabMap = {
   [key: string]: JSX.Element;
 };
 
 const tabMap: TabMap = {
-  blogs: <div key="blogs">Blogs</div>,
-  projects: <div key="projects">Projects</div>
+  blogs: <BlogsTab key="blogs" />,
+  projects: <ProjectsTab key="projects" />
 };
 
 const Dashboard = () => {
@@ -14,7 +17,7 @@ const Dashboard = () => {
   const tab = tabMap[activeTab];
 
   return (
-    <div>
+    <div className={styles.dashboardContainer}>
       <ul>
         <li>
           <button onClick={() => setActiveTab('blogs')}>Blogs</button>

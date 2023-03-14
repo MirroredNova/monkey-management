@@ -37,25 +37,23 @@ const LoginForm = ({ setAuthenticatedValue }: Props) => {
   };
 
   return (
-    <div className={styles.formContainer}>
-      <div className={styles.formWrapper}>
-        <h1>Admin Login</h1>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={loginData.username}
-          onChange={changeHandler}
-        />
-        <input
-          type="text"
-          name="password"
-          placeholder="Password"
-          value={loginData.password}
-          onChange={changeHandler}
-        />
-        <button onClick={handleSubmitClick}>Submit</button>
-      </div>
+    <div className={styles.formWrapper}>
+      <h1>Admin Login</h1>
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        value={loginData.username}
+        onChange={changeHandler}
+      />
+      <input
+        type="text"
+        name="password"
+        placeholder="Password"
+        value={loginData.password}
+        onChange={changeHandler}
+      />
+      <button onClick={handleSubmitClick}>Submit</button>
     </div>
   );
 };

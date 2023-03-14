@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import styles from './styles.module.css';
 
 const Page = () => {
-  const [authenticated, setAuthenticated] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
 
   const setAuthenticatedValue = (value: boolean) => {
     setAuthenticated(value);
@@ -15,11 +15,11 @@ const Page = () => {
   return (
     <main>
       {authenticated ? (
-        <div>
+        <div className={styles.dashboardContainer}>
           <Dashboard />
         </div>
       ) : (
-        <div>
+        <div className={styles.loginContainer}>
           <LoginForm setAuthenticatedValue={setAuthenticatedValue} />
         </div>
       )}
