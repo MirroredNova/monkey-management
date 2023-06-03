@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import BlogForm from '../../forms/blogForm/blogsForm';
+import styles from './blogsTab.module.css';
 
 const BlogsTab = () => {
-  const [activeTab, setActiveTab] = useState('existing');
+  const [activeTab, setActiveTab] = useState('new');
   return (
-    <div>
-      <ul>
+    <div className={styles.blogsContainer}>
+      <ul className={styles.blogsNavList}>
         <li>
           <button onClick={() => setActiveTab('existing')}>
             Existing Blogs
@@ -14,7 +16,7 @@ const BlogsTab = () => {
           <button onClick={() => setActiveTab('new')}>New Blog</button>
         </li>
       </ul>
-      <div>{activeTab}</div>
+      <div>{activeTab === 'new' && <BlogForm />}</div>
     </div>
   );
 };

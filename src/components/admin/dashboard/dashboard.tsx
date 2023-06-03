@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashboardContainer}>
-      <ul>
+      <ul className={styles.dashboardList}>
         <li>
           <button onClick={() => setActiveTab('blogs')}>Blogs</button>
         </li>

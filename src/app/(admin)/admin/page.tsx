@@ -1,12 +1,12 @@
 'use client';
 
 import Dashboard from '@/components/admin/dashboard/dashboard';
-import LoginForm from '@/components/admin/loginForm/loginForm';
+import LoginForm from '@/components/admin/forms/loginForm/loginForm';
 import React, { useState } from 'react';
 import styles from './styles.module.css';
 
 const Page = () => {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(true);
 
   const setAuthenticatedValue = (value: boolean) => {
     setAuthenticated(value);

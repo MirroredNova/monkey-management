@@ -1,0 +1,14 @@
+.blogsNavList {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0px;
+  border-bottom: 1px solid grey;
+}
+
+.blogsNavList button {
+  font-size: 32px;
+  border: none;
+  padding: 8px;
+  width: 256px;
+}
