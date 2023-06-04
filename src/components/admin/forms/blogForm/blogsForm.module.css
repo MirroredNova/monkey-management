@@ -1,12 +1,15 @@
 .blogsForm {
   display: flex;
   flex-direction: column;
-}
-
-.blogsForm > * {
-  margin: 8px 0px;
+  gap: 8px;
 }
 
 .blogsForm label {
   padding-right: 8px;
+}
+
+.blogContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

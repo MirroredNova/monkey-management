@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import BlogForm from '../../forms/blogForm/blogsForm';
+import BlogsForm from '../../forms/blogForm/blogsForm';
+import BlogsList from './blogsList';
 import styles from './blogsTab.module.css';
+
+type TabMap = {
+  [key: string]: JSX.Element;
+};
+
+const tabMap: TabMap = {
+  new: <BlogsForm />,
+  existing: <BlogsList />
+};
 
 const BlogsTab = () => {
   const [activeTab, setActiveTab] = useState('new');
+  const tab = tabMap[activeTab];
+
   return (
     <div className={styles.blogsContainer}>
       <ul className={styles.blogsNavList}>
@@ -16,7 +28,7 @@ const BlogsTab = () => {
           <button onClick={() => setActiveTab('new')}>New Blog</button>
         </li>
       </ul>
-      <div>{activeTab === 'new' && <BlogForm />}</div>
+      <div className={styles.blogsContent}>{tab}</div>
     </div>
   );
 };
