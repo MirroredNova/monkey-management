@@ -13,7 +13,7 @@ const tabMap: TabMap = {
 };
 
 const BlogsTab = () => {
-  const [activeTab, setActiveTab] = useState('new');
+  const [activeTab, setActiveTab] = useState('existing');
   const tab = tabMap[activeTab];
 
   return (
