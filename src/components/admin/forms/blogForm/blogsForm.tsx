@@ -1,3 +1,4 @@
+import FirebaseService from '@/services/firebase.service';
 import { Blog } from '@/types/blogs';
 import React, { useCallback, useState } from 'react';
 import styles from './blogsForm.module.css';
@@ -8,6 +9,10 @@ const BlogForm = () => {
     content: ['']
   });
   const [notification, setNotification] = useState('');
+  const [coverImage, setCoverImage] = useState<File | undefined>(undefined);
+  const [contentImages, setContentImages] = useState<File[] | undefined>(
+    undefined
+  );
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,15 +28,18 @@ const BlogForm = () => {
     });
   };
 
+  const onImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const type = e.currentTarget.getAttribute('data-image');
+    if (type === 'coverImage') {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      setCoverImage(file);
+    }
+  };
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await fetch(
-      'https://monkey-management-37b20-default-rtdb.firebaseio.com/blogs.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(formData)
-      }
-    );
+    const response = await FirebaseService.postBlogData(formData);
 
     if (!response.ok) {
       setNotification('Something went Wrong');
@@ -56,6 +64,7 @@ const BlogForm = () => {
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       const val = e.currentTarget.getAttribute('data-value');
+      const index = e.currentTarget.getAttribute('data-index');
       if (val === 'increment') {
         setFormData((prev) => ({
           ...prev,
@@ -69,6 +78,13 @@ const BlogForm = () => {
             ...prev,
             content: [...prev.content.filter((_, i, a) => i !== a.length - 1)]
           };
+        });
+      }
+      if (val === 'remove' && index) {
+        setFormData((prev) => {
+          const updatedContent = [...prev.content];
+          updatedContent.splice(+index, 1);
+          return { ...prev, content: updatedContent };
         });
       }
     },
@@ -87,6 +103,13 @@ const BlogForm = () => {
           name="title"
           required
         />
+        <input
+          onChange={onImageChange}
+          name="image"
+          required
+          type="file"
+          data-image="coverImage"
+        />
         <label>Content</label>
         <div>
           <button
@@ -96,17 +119,20 @@ const BlogForm = () => {
           >
             Add Paragraph
           </button>
-          <button
-            type="button"
-            data-value="decrement"
-            onClick={changeParagraphCount}
-          >
-            Remove Paragraph
-          </button>
         </div>
         {formData.content.map((x, i) => (
           <div key={i} className={styles.blogContentContainer}>
-            <label>Paragraph {i + 1}</label>
+            <div>
+              <label>Paragraph {i + 1}</label>
+              <button
+                type="button"
+                data-value="remove"
+                data-index={i}
+                onClick={changeParagraphCount}
+              >
+                Delete
+              </button>
+            </div>
             <textarea
               placeholder={`Enter text for paragraph ${i + 1}`}
               rows={6}
