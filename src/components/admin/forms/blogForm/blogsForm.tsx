@@ -1,3 +1,4 @@
+import CloudinaryService from '@/services/cloudinary.service';
 import FirebaseService from '@/services/firebase.service';
 import { Blog } from '@/types/blogs';
 import React, { useCallback, useState } from 'react';
@@ -10,9 +11,7 @@ const BlogForm = () => {
   });
   const [notification, setNotification] = useState('');
   const [coverImage, setCoverImage] = useState<File | undefined>(undefined);
-  const [contentImages, setContentImages] = useState<File[] | undefined>(
-    undefined
-  );
+  const [contentImages, setContentImages] = useState<File[]>([] as File[]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -35,10 +34,17 @@ const BlogForm = () => {
       if (!file) return;
       setCoverImage(file);
     }
+    if (type === 'contentImage') {
+      const { files } = e.target;
+      if (!files) return;
+      setContentImages(Array.from(files));
+    }
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!coverImage) return;
+    const coverImageResp = await CloudinaryService.uploadImage(coverImage);
     const response = await FirebaseService.postBlogData(formData);
 
     if (!response.ok) {
@@ -120,6 +126,13 @@ const BlogForm = () => {
             Add Paragraph
           </button>
         </div>
+        <input
+          type="file"
+          multiple
+          data-image="contentImage"
+          onChange={onImageChange}
+          name="contentImage"
+        />
         {formData.content.map((x, i) => (
           <div key={i} className={styles.blogContentContainer}>
             <div>
