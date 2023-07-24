@@ -7,11 +7,12 @@ import styles from './blogsForm.module.css';
 const BlogForm = () => {
   const [formData, setFormData] = useState<Blog>({
     title: '',
+    coverImage: '',
     content: ['']
   });
   const [notification, setNotification] = useState('');
   const [coverImage, setCoverImage] = useState<File | undefined>(undefined);
-  const [contentImages, setContentImages] = useState<File[]>([] as File[]);
+  const [, setContentImages] = useState<File[]>([] as File[]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -44,7 +45,8 @@ const BlogForm = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!coverImage) return;
-    const coverImageResp = await CloudinaryService.uploadImage(coverImage);
+    const coverImageUrl = await CloudinaryService.uploadImage(coverImage);
+    formData.coverImage = coverImageUrl;
     const response = await FirebaseService.postBlogData(formData);
 
     if (!response.ok) {

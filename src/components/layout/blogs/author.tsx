@@ -1,0 +1,29 @@
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+import React from 'react';
+import styles from './author.module.css';
+
+const Author = () => (
+  <div className={styles.container}>
+    <div className={styles.contentContainer}>
+      <div className={styles.imageContainer}>
+        <Image
+          src="https://res.cloudinary.com/dhhcxidye/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1685936711/cld-sample-5.jpg"
+          width="1000"
+          height="1000"
+          alt={''}
+        />
+      </div>
+      <div className={styles.textContainer}>
+        <h3>Jacob Duchac</h3>
+        <p>1 minute ago &bull; 1 min</p>
+      </div>
+    </div>
+    <div className={styles.moreContainer}>
+      <FontAwesomeIcon icon={faEllipsisVertical} />
+    </div>
+  </div>
+);
+
+export default Author;

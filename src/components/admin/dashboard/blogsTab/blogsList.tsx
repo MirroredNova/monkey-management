@@ -18,7 +18,7 @@ const BlogsList = () => {
         {blogs.map((blog) => (
           <li key={blog.id}>
             <h1>{blog.title}</h1>
-            {blog.content.map((p) => (
+            {blog.content?.map((p) => (
               <p key={Math.random()}>{p}</p>
             ))}
           </li>

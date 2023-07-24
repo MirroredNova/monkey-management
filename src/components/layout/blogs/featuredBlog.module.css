@@ -1,0 +1,50 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+.container > div {
+  width: 100%;
+}
+
+.container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textContainer {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  align-items: center;
+}
+
+.textContainer > div:nth-child(2) {
+  align-self: start; /* This will override the container's align-items for the 2nd child */
+}
+
+.timeContainer {
+  font-family: initial;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.contentContainer h1 {
+  font-size: 30px;
+  font-family: initial;
+  font-weight: bolder;
+}
+
+.commentContainer {
+  font-family: initial;
+  padding-top: 18px;
+  border-top: 1px solid grey;
+}

@@ -10,5 +10,7 @@
 }
 
 .content {
-  border: 1px solid lightgrey;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }

@@ -1,0 +1,48 @@
+.container {
+  margin: 24px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+
+.imageContainer {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.imageContainer img {
+  display: inline;
+  margin: 0 auto;
+  height: 40px;
+  width: auto;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.textContainer h3,
+.textContainer p {
+  font-family: initial;
+}
+
+.moreContainer {
+  display: flex;
+  width: 10px;
+  justify-content: center;
+}
+
+.moreContainer svg {
+  width: 5px;
+}

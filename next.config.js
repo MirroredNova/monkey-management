@@ -6,7 +6,7 @@ const nextConfig = {
     appDir: true
   },
   images: {
-    domains: ['static.wixstatic.com']
+    domains: ['static.wixstatic.com', 'res.cloudinary.com']
   }
 };
 

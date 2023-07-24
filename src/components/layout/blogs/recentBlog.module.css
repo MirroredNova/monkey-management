@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.textContainer {
+  margin: 24px;
+}
+
+.textContainer h2 {
+  font-size: 24px;
+  font-family: initial;
+  font-weight: 700;
+  color: var(--dark);
+  padding-bottom: 16px;
+  border-bottom: 1px solid lightgray;
+}
+
+.iconContainer {
+  padding-top: 16px;
+  height: 20px;
+}
+
+.iconContainer a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.iconContainer span {
+  position: relative;
+  font-family: initial;
+  top: -2px;
+}
+
+.iconContainer svg {
+  width: 16px;
+  padding-right: 4px;
+  line-height: 0px;
+}
