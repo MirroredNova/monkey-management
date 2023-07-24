@@ -11,6 +11,10 @@ export default class FirebaseService {
     }
 
     const blogsData: Blog[] = [];
+    const data = await response.json();
+    if (!data) {
+      return blogsData;
+    }
     Object.entries(await response.json()).forEach(([index, value]) => {
       blogsData.push({
         id: index,
