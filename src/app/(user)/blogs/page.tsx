@@ -2,26 +2,31 @@ import BlogItem from '@/components/layout/blogs/blogItem';
 import Empty from '@/components/layout/empty/empty';
 import PageTitle from '@/components/layout/pageTitle/pageTitle';
 import React from 'react';
+import FirebaseService from '@/services/firebase.service';
 import styles from './styles.module.css';
 
 export const metadata = {
   title: 'Blogs'
 };
 
-const blog = {
-  title: 'Top Hikes In Australia',
-  content: [
-    'Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading...'
-  ]
-};
+const page = async () => {
+  const blogData = await FirebaseService.fetchBlogData();
+  const isEmpty = blogData.length === 0;
 
-const page = () => (
-  <div className={styles.blogContainer}>
-    <PageTitle>Blog</PageTitle>
-    <div className={styles.content}>
-      <BlogItem blog={blog} />
+  return (
+    <div className={styles.blogContainer}>
+      <PageTitle>Blog</PageTitle>
+      <div className={isEmpty ? styles.emptyContent : styles.content}>
+        {isEmpty ? (
+          <Empty />
+        ) : (
+          blogData
+            .reverse()
+            .map((blog) => <BlogItem key={blog.id} blog={blog} />)
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default page;

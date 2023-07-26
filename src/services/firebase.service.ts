@@ -15,7 +15,7 @@ export default class FirebaseService {
     if (!data) {
       return blogsData;
     }
-    Object.entries(await response.json()).forEach(([index, value]) => {
+    Object.entries(data).forEach(([index, value]) => {
       blogsData.push({
         id: index,
         ...(value as Blog)
@@ -25,11 +25,13 @@ export default class FirebaseService {
   }
 
   static async postBlogData(formData: Blog) {
+    const newForm = formData;
+    newForm.creationDate = Date.now();
     const response = await fetch(
       'https://monkey-management-37b20-default-rtdb.firebaseio.com/blogs.json',
       {
         method: 'POST',
-        body: JSON.stringify(formData)
+        body: JSON.stringify(newForm)
       }
     );
     return response;

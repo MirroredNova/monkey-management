@@ -6,20 +6,26 @@ import {
   faTwitter,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons';
+import {
+  twitterLink,
+  youtubeLink,
+  instagramLink,
+  tiktokLink
+} from '@/constants/constants';
 import styles from './socials.module.css';
 
 const Socials = () => (
   <div className={styles.container}>
-    <a href="/">
+    <a href={twitterLink}>
       <FontAwesomeIcon icon={faTwitter} />
     </a>
-    <a href="/">
+    <a href={instagramLink}>
       <FontAwesomeIcon icon={faInstagram} />
     </a>
-    <a href="/">
+    <a href={youtubeLink}>
       <FontAwesomeIcon icon={faYoutube} />
     </a>
-    <a href="/">
+    <a href={tiktokLink}>
       <FontAwesomeIcon icon={faTiktok} />
     </a>
   </div>

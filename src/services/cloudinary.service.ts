@@ -11,6 +11,6 @@ export default class CloudinaryService {
       }
     );
     const data = await response.json();
-    return data.url;
+    return `${data.public_id}.${data.format}`;
   }
 }

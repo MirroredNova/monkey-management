@@ -14,3 +14,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
+
+.emptyContent {
+  border: 1px solid lightgrey;
+}

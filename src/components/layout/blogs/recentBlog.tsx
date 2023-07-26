@@ -14,7 +14,7 @@ const RecentBlog = ({ blog }: Props) => (
   <div className={styles.container}>
     <div className={styles.imageContainer}>
       <Image
-        src="https://res.cloudinary.com/dhhcxidye/image/upload/v1685936710/cld-sample-2.jpg"
+        src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_FEATURED_IMAGE_TRANSFORMATION}/${blog?.coverImage}`}
         alt="blog"
         width={1080}
         height={1080}

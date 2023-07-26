@@ -1,31 +1,37 @@
 import React from 'react';
+import { Blog } from '@/types/blogs';
 import RecentBlog from '../blogs/recentBlog';
 import Empty from '../empty/empty';
 import styles from './recentPosts.module.css';
 
-const blog = {
-  title: 'Top Hikes In Australia',
-  content: [
-    'Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading...'
-  ]
+type Props = {
+  blogData: Blog[];
 };
 
-const RecentPosts = () => (
-  <section className={styles.container}>
-    <div className={styles.body}>
-      <div className={styles.title}>
-        <h2>Recent Post</h2>
+const RecentPosts = ({ blogData }: Props) => {
+  const isEmpty = blogData.length === 0;
+
+  return (
+    <section className={styles.container}>
+      <div className={styles.body}>
+        <div className={styles.title}>
+          <h2>Recent Post</h2>
+        </div>
+        <div className={isEmpty ? styles.emptyContent : styles.content}>
+          {isEmpty ? (
+            <Empty />
+          ) : (
+            blogData
+              .reverse()
+              .slice(1, process.env.NEXT_PUBLIC_NUM_RECENT_POSTS)
+              .map((blog) => (
+                <RecentBlog key={`recent-${blog.id}`} blog={blog} />
+              ))
+          )}
+        </div>
       </div>
-      <div className={styles.content}>
-        {/* <Empty /> */}
-        <RecentBlog blog={blog} />
-        <RecentBlog blog={blog} />
-        <RecentBlog blog={blog} />
-        <RecentBlog blog={blog} />
-        <RecentBlog blog={blog} />
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default RecentPosts;

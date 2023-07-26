@@ -43,6 +43,11 @@
   font-weight: bolder;
 }
 
+.contentContainer p {
+  width: 100%;
+  word-break: break-all;
+}
+
 .commentContainer {
   font-family: initial;
   padding-top: 18px;

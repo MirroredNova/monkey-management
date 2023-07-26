@@ -4,7 +4,11 @@ import Image from 'next/image';
 import React from 'react';
 import styles from './author.module.css';
 
-const Author = () => (
+type Props = {
+  agoText: string;
+};
+
+const Author = ({ agoText }: Props) => (
   <div className={styles.container}>
     <div className={styles.contentContainer}>
       <div className={styles.imageContainer}>
@@ -17,7 +21,7 @@ const Author = () => (
       </div>
       <div className={styles.textContainer}>
         <h3>Jacob Duchac</h3>
-        <p>1 minute ago &bull; 1 min</p>
+        <p>{agoText} &bull; 1 min</p>
       </div>
     </div>
     <div className={styles.moreContainer}>

@@ -1,11 +1,15 @@
-import FirebaseService from '@/services/firebase.service';
 import React from 'react';
+import { Blog } from '@/types/blogs';
 import FeaturedBlog from '../blogs/featuredBlog';
 import Empty from '../empty/empty';
 import styles from './featuredPosts.module.css';
 
-const FeaturedPosts = async () => {
-  const blogData = await FirebaseService.fetchBlogData();
+type Props = {
+  blogData: Blog[];
+};
+
+const FeaturedPosts = ({ blogData }: Props) => {
+  const featuredBlog = blogData.at(-1);
 
   return (
     <section className={styles.container}>
@@ -17,7 +21,7 @@ const FeaturedPosts = async () => {
           {blogData.length === 0 ? (
             <Empty />
           ) : (
-            <FeaturedBlog blog={blogData.at(-1)} />
+            featuredBlog && <FeaturedBlog blog={featuredBlog} />
           )}
         </div>
       </div>
