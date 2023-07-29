@@ -1,7 +1,7 @@
 import '../globals.css';
 import React from 'react';
 import Footer from '@/components/layout/footer/footer';
-import Nav from '@/components/layout/nav/Nav';
+import Nav from '@/components/layout/nav/nav';
 
 type Props = {
   children: React.ReactNode;
