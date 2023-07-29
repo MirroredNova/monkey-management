@@ -1,4 +1,4 @@
-import FirebaseService from '@/services/firebase.service';
+import { fetchBlogData } from '@/services/firebase.service';
 import { Blog } from '@/types/blogs';
 import React, { useState, useEffect } from 'react';
 import styles from './blogsList.module.css';
@@ -7,7 +7,7 @@ const BlogsList = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
-    FirebaseService.fetchBlogData().then((blogsData) => {
+    fetchBlogData().then((blogsData) => {
       setBlogs(blogsData);
     });
   }, []);

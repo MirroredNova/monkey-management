@@ -2,6 +2,8 @@ declare namespace NodeJS {
   interface ProcessEnv {
     DB_USER: string;
     DB_PASS: string;
+    FIREBASE_BLOG_URL: string;
+    FIREBASE_PROJECTS_URL: string;
     NEXT_PUBLIC_CLOUDINARY_URL: string;
     NEXT_PUBLIC_CLOUDINARY_NAME: string;
     NEXT_PUBLIC_CLOUDINARY_PRESET: string;

@@ -19,6 +19,11 @@
   grid-gap: 24px;
 }
 
+.body a {
+  text-decoration: none;
+  color: var(--light);
+}
+
 .title h2 {
   font-size: 30px;
   font-family: initial;

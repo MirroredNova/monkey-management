@@ -2,6 +2,11 @@
   border: 1px solid lightgray;
 }
 
+.container a {
+  text-decoration: none;
+  color: black;
+}
+
 .imageContainer img {
   width: 100%;
   height: 100%;

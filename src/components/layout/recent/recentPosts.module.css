@@ -28,6 +28,11 @@
   gap: 32px;
 }
 
+.content a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
 .emptyContent {
   border: 1px solid lightgrey;
 }

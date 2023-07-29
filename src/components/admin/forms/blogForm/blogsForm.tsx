@@ -1,5 +1,5 @@
 import CloudinaryService from '@/services/cloudinary.service';
-import FirebaseService from '@/services/firebase.service';
+import { postBlogData } from '@/services/firebase.service';
 import { Blog } from '@/types/blogs';
 import React, { useCallback, useState } from 'react';
 import styles from './blogsForm.module.css';
@@ -48,7 +48,7 @@ const BlogForm = () => {
     if (!coverImage) return;
     const coverImageUrl = await CloudinaryService.uploadImage(coverImage);
     formData.coverImage = coverImageUrl;
-    const response = await FirebaseService.postBlogData(formData);
+    const response = await postBlogData(formData);
 
     if (!response.ok) {
       setNotification('Something went Wrong');

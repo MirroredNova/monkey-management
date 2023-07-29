@@ -10,6 +10,9 @@ export default class CloudinaryService {
         body: formData
       }
     );
+    if (!response.ok) {
+      throw new Error('Could not upload new image');
+    }
     const data = await response.json();
     return `${data.public_id}.${data.format}`;
   }
