@@ -3,7 +3,9 @@ import { Project } from '@/types/projects';
 import { cache } from 'react';
 
 export const fetchBlogData = async () => {
-  const response = await fetch(process.env.NEXT_PUBLIC_FIREBASE_BLOG_URL);
+  const response = await fetch(process.env.NEXT_PUBLIC_FIREBASE_BLOG_URL, {
+    next: { revalidate: 30 }
+  });
 
   if (!response.ok) {
     throw new Error('Could not fetch blog data');
