@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
+import ProjectForm from '../../forms/projectForm/projectForm';
+import ProjectList from './projectList';
+
+type TabMap = {
+  [key: string]: JSX.Element;
+};
+
+const tabMap: TabMap = {
+  new: <ProjectForm />,
+  existing: <ProjectList />
+};
 
 const ProjectsTab = () => {
   const [activeTab, setActiveTab] = useState('existing');
+  const tab = tabMap[activeTab];
   return (
     <div>
       <ul>
@@ -14,7 +26,7 @@ const ProjectsTab = () => {
           <button onClick={() => setActiveTab('new')}>New Project</button>
         </li>
       </ul>
-      <div>{activeTab}</div>
+      <div>{tab}</div>
     </div>
   );
 };

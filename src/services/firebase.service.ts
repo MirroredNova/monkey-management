@@ -42,18 +42,18 @@ export const fetchProjectData = cache(async () => {
     throw new Error('Could not fetch project data');
   }
 
-  const blogsData: Blog[] = [];
+  const projectData: Project[] = [];
   const data = await response.json();
   if (!data) {
-    return blogsData;
+    return projectData;
   }
   Object.entries(data).forEach(([index, value]) => {
-    blogsData.push({
+    projectData.push({
       id: index,
-      ...(value as Blog)
-    } as Blog);
+      ...(value as Project)
+    } as Project);
   });
-  return blogsData;
+  return projectData;
 });
 
 export const postProjectData = async (formData: Project) => {
