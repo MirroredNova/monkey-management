@@ -23,7 +23,7 @@ const RecentPosts = ({ blogData }: Props) => {
           ) : (
             blogData
               .reverse()
-              .slice(1, process.env.NEXT_PUBLIC_NUM_RECENT_POSTS)
+              .slice(1, process.env.NEXT_PUBLIC_NUM_RECENT_POSTS + 1)
               .map((blog) => (
                 <RecentBlog key={`recent-${blog.id}`} blog={blog} />
               ))
