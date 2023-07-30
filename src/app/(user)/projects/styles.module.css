@@ -1,7 +1,6 @@
 .projectContainer {
-  padding: 70px 0;
-  width: 95%;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
@@ -9,4 +8,10 @@
   grid-template-columns: repeat(auto-fill, 600px);
   grid-gap: 1rem;
   justify-content: center;
+}
+
+.emptyContent {
+  border: 1px solid lightgrey;
+  width: 940px;
+  align-self: center;
 }

@@ -1,5 +1,4 @@
 .blogContainer {
-  padding-top: 70px;
   display: grid;
   grid-template-columns: auto 940px auto;
 }

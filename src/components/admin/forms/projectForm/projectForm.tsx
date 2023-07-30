@@ -104,7 +104,7 @@ const ProjectForm = () => {
 
   return (
     <div>
-      <form className={styles.projectForm} onSubmit={onSubmit}>
+      <form className={styles.projectsForm} onSubmit={onSubmit}>
         {notification && <h1>{notification}</h1>}
         <label>Title</label>
         <input
@@ -147,7 +147,7 @@ const ProjectForm = () => {
           name="contentImage"
         />
         {formData.content.map((x, i) => (
-          <div key={i} className={styles.blogContentContainer}>
+          <div key={i} className={styles.projectContentContainer}>
             <div>
               <label>Paragraph {i + 1}</label>
               <button

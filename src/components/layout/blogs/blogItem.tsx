@@ -15,7 +15,7 @@ const BlogItem = ({ blog }: Props) => (
     <div className={styles.imageContainer}>
       <Link href={`/blogs/${blog?.id}`}>
         <Image
-          src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${blog?.coverImage}`}
+          src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_PROJECT_COVER_IMAGE_TRANSFORMATION}/${blog?.coverImage}`}
           width={1080}
           height={1080}
           alt={''}

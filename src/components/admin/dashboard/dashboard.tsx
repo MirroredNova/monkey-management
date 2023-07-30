@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
+import styles from './dashboard.module.css';
 import BlogsTab from './blogsTab/blogsTab';
 import ProjectsTab from './projectsTab/projectsTab';
-import styles from './dashboard.module.css';
 
 type TabMap = {
   [key: string]: JSX.Element;
@@ -13,8 +14,12 @@ const tabMap: TabMap = {
 };
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('blogs');
-  const tab = tabMap[activeTab];
+  const [activeTab, setActiveTab] = useLocalStorage<string>(
+    'activeTab',
+    'blogs'
+  );
+
+  const tab = useMemo(() => tabMap[activeTab], [activeTab]);
 
   return (
     <div className={styles.dashboardContainer}>

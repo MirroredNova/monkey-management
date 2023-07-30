@@ -1,16 +1,19 @@
 import Image from 'next/image';
 import React from 'react';
+import { Project } from '@/types/projects';
 import styles from './banner.module.css';
 
-const Banner = () => (
+type Props = {
+  project: Project;
+};
+
+const Banner = ({ project }: Props) => (
   <div className={styles.bannerContainer}>
     <Image
       alt="ProjectImageBanner"
       width={1920}
       height={600}
-      src={
-        'https://static.wixstatic.com/media/fc7570_178fe0f7c3d546d2813326f67d54e7a3~mv2.jpg/v1/fill/w_1920,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/fc7570_178fe0f7c3d546d2813326f67d54e7a3~mv2.jpg'
-      }
+      src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_PROJECT_BANNER_IMAGE_TRANSFORMATION}/${project?.coverImage}`}
     />
   </div>
 );

@@ -1,0 +1,11 @@
+.projectsList li {
+  border-top: 1px solid black;
+  padding: 8px 0;
+}
+.projectsList li:first-child {
+  border-top: none;
+}
+
+.projectsList h1 {
+  font-size: 32px;
+}

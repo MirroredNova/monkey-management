@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import BlogsForm from '../../forms/blogForm/blogsForm';
 import BlogsList from './blogsList';
 import styles from './blogsTab.module.css';
@@ -13,11 +14,14 @@ const tabMap: TabMap = {
 };
 
 const BlogsTab = () => {
-  const [activeTab, setActiveTab] = useState('existing');
+  const [activeTab, setActiveTab] = useLocalStorage(
+    'activeBlogsTab',
+    'existing'
+  );
   const tab = tabMap[activeTab];
 
   return (
-    <div className={styles.blogsContainer}>
+    <div>
       <ul className={styles.blogsNavList}>
         <li>
           <button onClick={() => setActiveTab('existing')}>

@@ -140,6 +140,7 @@ body {
   flex-shrink: 0;
 }
 .content {
+  padding-top: 70px;
   flex: 1 0 auto;
 }
 :root {

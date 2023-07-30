@@ -1,6 +1,6 @@
-import { fetchBlogData } from '@/services/firebase.service';
+import { deleteBlogData, fetchBlogData } from '@/services/firebase.service';
 import { Blog } from '@/types/blogs';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './blogsList.module.css';
 
 const BlogsList = () => {
@@ -12,6 +12,14 @@ const BlogsList = () => {
     });
   }, []);
 
+  const deleteBlog = useCallback((id: string | undefined) => {
+    if (id) {
+      deleteBlogData(id).then(() => {
+        setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog.id !== id));
+      });
+    }
+  }, []);
+
   return (
     <div>
       <ul className={styles.blogsList}>
@@ -21,6 +29,7 @@ const BlogsList = () => {
             {blog.content?.map((p) => (
               <p key={Math.random()}>{p}</p>
             ))}
+            <button onClick={() => deleteBlog(blog.id)}>delete</button>
           </li>
         ))}
       </ul>

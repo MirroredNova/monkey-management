@@ -11,6 +11,10 @@
   grid-area: 1 / 1 / 2 / 2;
 }
 
+.imageContainer > img {
+  object-fit: cover;
+}
+
 .textContainer {
   position: relative;
   margin: 64px 0px 57px 0;
@@ -32,8 +36,6 @@
 .textContainer > p {
   font-size: 14px;
   line-height: 20px;
-  justify-self: center;
-  align-self: center;
 }
 
 .textContainer > a {

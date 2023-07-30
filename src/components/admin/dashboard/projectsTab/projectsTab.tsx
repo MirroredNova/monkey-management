@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import ProjectForm from '../../forms/projectForm/projectForm';
 import ProjectList from './projectList';
+import styles from './projectsTab.module.css';
 
 type TabMap = {
   [key: string]: JSX.Element;
@@ -12,11 +14,14 @@ const tabMap: TabMap = {
 };
 
 const ProjectsTab = () => {
-  const [activeTab, setActiveTab] = useState('existing');
+  const [activeTab, setActiveTab] = useLocalStorage(
+    'activeProjectsTab',
+    'existing'
+  );
   const tab = tabMap[activeTab];
   return (
     <div>
-      <ul>
+      <ul className={styles.projectsNavList}>
         <li>
           <button onClick={() => setActiveTab('existing')}>
             Existing Projects
@@ -26,7 +31,7 @@ const ProjectsTab = () => {
           <button onClick={() => setActiveTab('new')}>New Project</button>
         </li>
       </ul>
-      <div>{tab}</div>
+      <div className={styles.projectsContent}>{tab}</div>
     </div>
   );
 };
