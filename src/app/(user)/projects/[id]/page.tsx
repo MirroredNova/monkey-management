@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import ProjectBanner from '@/components/projects/banner/banner';
+import ProjectBanner from '@/components/banner/banner';
 import ProjectContent from '@/components/projects/content/content';
 import { fetchProjectData } from '@/services/firebase.service';
 
@@ -24,7 +24,7 @@ const Project = async ({ params }: Props) => {
     <div>
       {projects[projIndex] && (
         <>
-          <ProjectBanner project={projects[projIndex]} />
+          <ProjectBanner object={projects[projIndex]} />
           <ProjectContent
             project={projects[projIndex]}
             nextProjId={projects[projIndex - 1]?.id}
