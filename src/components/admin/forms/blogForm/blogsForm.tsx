@@ -7,6 +7,7 @@ import styles from './blogsForm.module.css';
 const BlogForm = () => {
   const [formData, setFormData] = useState<Blog>({
     title: '',
+    readTime: 0,
     subtext: '',
     coverImage: '',
     content: ['']
@@ -65,6 +66,7 @@ const BlogForm = () => {
 
     setFormData({
       title: '',
+      readTime: 0,
       subtext: '',
       coverImage: '',
       content: ['']
@@ -112,6 +114,15 @@ const BlogForm = () => {
           value={formData.title}
           onChange={onChange}
           name="title"
+          required
+        />
+        <label>Read Time</label>
+        <input
+          placeholder="readTime"
+          type="number"
+          value={formData.readTime}
+          onChange={onChange}
+          name="readTime"
           required
         />
         <label>Subtext</label>

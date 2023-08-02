@@ -12,6 +12,10 @@
   height: 100%;
 }
 
+.authorContainer {
+  margin: 24px 18px;
+}
+
 .contentContainer {
   display: flex;
   flex-direction: column;

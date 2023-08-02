@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: 680px;
   justify-content: center;
-  row-gap: 50px;
+  row-gap: 36px;
 }
 
 .content a {

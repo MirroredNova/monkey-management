@@ -6,9 +6,10 @@ import styles from './author.module.css';
 
 type Props = {
   agoText: string;
+  readTime: number;
 };
 
-const Author = ({ agoText }: Props) => (
+const Author = ({ agoText, readTime }: Props) => (
   <div className={styles.container}>
     <div className={styles.contentContainer}>
       <div className={styles.imageContainer}>
@@ -21,7 +22,9 @@ const Author = ({ agoText }: Props) => (
       </div>
       <div className={styles.textContainer}>
         <h3>Jacob Duchac</h3>
-        <p>{agoText} &bull; 1 min</p>
+        <p>
+          {agoText} &bull; {`${readTime} min read`}
+        </p>
       </div>
     </div>
     <div className={styles.moreContainer}>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Blog } from '@/types/blogs';
+import BlogService from '@/services/blog.service';
 import styles from './content.module.css';
+import Author from '../layout/blogs/author';
 
 type Props = {
   blog: Blog;
@@ -18,6 +20,12 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
         <section className={styles.content}>
           <a href="/blogs">{'<'} Back</a>
           <h1>{blog.title}</h1>
+          {blog?.creationDate && (
+            <Author
+              agoText={BlogService.timeSince(new Date(blog?.creationDate))}
+              readTime={blog.readTime}
+            />
+          )}
           <h3>{blog.subtext}</h3>
           {blog.content.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>

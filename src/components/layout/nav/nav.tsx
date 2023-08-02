@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import React from 'react';
 import SiteTitle from '../siteTitle/siteTitle';
@@ -8,12 +8,12 @@ import styles from './nav.module.css';
 const Nav = () => (
   <nav className={styles.navBar}>
     <SiteTitle />
-    <div className={styles.searchBar}>
+    {/* <div className={styles.searchBar}>
       <input placeholder="Search...." />
       <button type="button">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
-    </div>
+    </div> */}
     <div>
       <ul className={styles.navList}>
         <li>

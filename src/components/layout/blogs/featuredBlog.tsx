@@ -24,7 +24,7 @@ const FeaturedBlog = ({ blog }: Props) => (
         <div className={styles.timeContainer}>
           {blog.creationDate &&
             BlogService.timeSince(new Date(blog?.creationDate))}{' '}
-          &bull; 2 min
+          &bull; {`${blog.readTime} min read`}
         </div>
         <div className={styles.contentContainer}>
           <h1>{blog?.title}</h1>

@@ -2,7 +2,6 @@ import React from 'react';
 import { fetchBlogData } from '@/services/firebase.service';
 import Banner from '@/components/banner/banner';
 import BlogContent from '@/components/blogs/content';
-import styles from './styles.module.css';
 
 export const metadata = {
   title: 'Blogs'

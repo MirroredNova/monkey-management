@@ -22,9 +22,14 @@ const BlogItem = ({ blog }: Props) => (
         />
       </Link>
     </div>
-    {blog?.creationDate && (
-      <Author agoText={BlogService.timeSince(new Date(blog?.creationDate))} />
-    )}
+    <div className={styles.authorContainer}>
+      {blog?.creationDate && (
+        <Author
+          agoText={BlogService.timeSince(new Date(blog?.creationDate))}
+          readTime={blog.readTime}
+        />
+      )}
+    </div>
     <Link href={`/blogs/${blog?.id}`}>
       <div className={styles.contentContainer}>
         <h1>{blog?.title}</h1>
