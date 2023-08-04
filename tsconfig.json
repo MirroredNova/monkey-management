@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "./next.config.js"
+    "./next.config.js",
+    "src/components/blogs/contentImages.tsx"
   ],
   "exclude": ["node_modules"]
 }

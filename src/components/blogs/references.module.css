@@ -1,0 +1,17 @@
+.referenceContainer h2 {
+  font-size: 24px;
+  font-family: initial;
+  font-weight: 700;
+  color: var(--dark);
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid lightgray;
+}
+
+.referenceContainer span {
+  padding-right: 4px;
+}
+
+.referenceContainer li {
+  padding: 2px 0;
+}

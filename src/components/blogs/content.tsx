@@ -3,6 +3,8 @@ import { Blog } from '@/types/blogs';
 import BlogService from '@/services/blog.service';
 import styles from './content.module.css';
 import Author from '../layout/blogs/author';
+import References from './references';
+import ContentImages from './contentImages';
 
 type Props = {
   blog: Blog;
@@ -30,6 +32,10 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
           {blog.content.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
+          {blog.contentImages && (
+            <ContentImages imageUrls={blog.contentImages} />
+          )}
+          {blog.references && <References referencesList={blog.references} />}
           <div className={styles.buttons}>
             <a href={prevUrl}>Previous</a>
             <a href={nextUrl}>Next</a>

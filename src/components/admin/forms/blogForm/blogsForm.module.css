@@ -4,13 +4,32 @@
   gap: 8px;
 }
 
+.blogsForm h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.blogsForm > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 4px;
+  border: 1px solid lightgrey;
+}
+
 .blogsForm label {
   padding-right: 8px;
 }
 
+.referencesContainer {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .blogContentContainer {
   padding: 8px 0;
-  border-top: 1px solid black;
   display: flex;
   flex-direction: column;
   gap: 8px;
