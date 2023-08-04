@@ -2,6 +2,7 @@ import '../globals.css';
 import React from 'react';
 import Footer from '@/components/layout/footer/footer';
 import Nav from '@/components/layout/nav/nav';
+import { Analytics } from '@vercel/analytics/react';
 
 type Props = {
   children: React.ReactNode;
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: Props) {
         <footer className="footer">
           <Footer />
         </footer>
+        <Analytics />
       </body>
     </html>
   );
