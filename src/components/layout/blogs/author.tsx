@@ -28,9 +28,9 @@ const Author = ({ agoText, readTime }: Props) => (
         </p>
       </div>
     </div>
-    <div className={styles.moreContainer}>
+    {/* <div className={styles.moreContainer}>
       <FontAwesomeIcon icon={faEllipsisVertical} />
-    </div>
+    </div> */}
   </div>
 );
 

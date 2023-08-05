@@ -1,6 +1,7 @@
 import React from 'react';
 import { Blog } from '@/types/blogs';
 import BlogService from '@/services/blog.service';
+import Image from 'next/image';
 import styles from './content.module.css';
 import Author from '../layout/blogs/author';
 import References from './references';
@@ -29,9 +30,23 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
             />
           )}
           <h3>{blog.subtext}</h3>
-          {blog.content.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          {blog.content &&
+            blog.content.map((content, index) => {
+              if (content.type === 'text') {
+                return <p key={index}>{content.data as string}</p>;
+              }
+              return (
+                <Image
+                  key={index}
+                  src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_BLOGS_CONTENT_IMAGE_TRANSFORMATION}/${content.data}`}
+                  alt={''}
+                  width={1080}
+                  height={1080}
+                  unoptimized
+                  className={styles.contentImage}
+                />
+              );
+            })}
           {blog.contentImages && (
             <ContentImages imageUrls={blog.contentImages} />
           )}

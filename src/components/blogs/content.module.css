@@ -44,6 +44,11 @@
   line-height: 24px;
 }
 
+.content > img {
+  width: 100%;
+  height: auto;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;

@@ -9,7 +9,7 @@ type Props = {
 };
 
 const RecentPosts = ({ blogData }: Props) => {
-  const isEmpty = blogData.length === 0;
+  const isEmpty = blogData.length <= 1;
 
   return (
     <section className={styles.container}>

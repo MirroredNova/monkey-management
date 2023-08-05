@@ -47,7 +47,7 @@ const LoginForm = ({ setAuthenticatedValue }: Props) => {
         onChange={changeHandler}
       />
       <input
-        type="text"
+        type="password"
         name="password"
         placeholder="Password"
         value={loginData.password}

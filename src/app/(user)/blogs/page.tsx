@@ -15,7 +15,7 @@ const page = async () => {
 
   return (
     <div className={styles.blogContainer}>
-      <PageTitle>Blog</PageTitle>
+      <PageTitle>Blogs</PageTitle>
       <div className={isEmpty ? styles.emptyContent : styles.content}>
         {isEmpty ? (
           <Empty />

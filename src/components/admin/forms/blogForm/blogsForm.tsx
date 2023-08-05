@@ -1,40 +1,46 @@
 import CloudinaryService from '@/services/cloudinary.service';
 import { postBlogData } from '@/services/firebase.service';
-import { Blog } from '@/types/blogs';
+import { Blog, Content } from '@/types/blogs';
 import React, { useCallback, useState } from 'react';
 import styles from './blogsForm.module.css';
+
+const radioOptions = ['text', 'img'];
 
 const BlogForm = () => {
   const [formData, setFormData] = useState<Blog>({
     title: '',
     readTime: 0,
     subtext: '',
-    coverImage: '',
-    content: ['']
+    coverImage: ''
   });
   const [notification, setNotification] = useState('');
   const [coverImage, setCoverImage] = useState<File | undefined>(undefined);
   const [contentImages, setContentImages] = useState<File[]>([] as File[]);
   const [references, setReferences] = useState<string[]>([]);
+  const [contentList, setContentList] = useState<string[]>([]);
+  const [content, setContent] = useState<(string | File)[]>([]);
+  const [selectedContent, setSelectedContent] = useState<string>(
+    radioOptions[0]
+  );
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const index = e.currentTarget.getAttribute('data-index');
-    if (!index) return;
-    setFormData((prev) => {
-      const updatedContent = [...prev.content];
-      updatedContent[+index] = e.target.value;
-      return { ...prev, content: updatedContent };
-    });
   };
 
   const onChangeReference = (e: React.ChangeEvent<HTMLInputElement>) => {
     const index = e.currentTarget.getAttribute('data-index');
     if (!index) return;
     setReferences((prev) => {
+      const updatedContent = [...prev];
+      updatedContent[+index] = e.target.value;
+      return updatedContent;
+    });
+  };
+
+  const onTextContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const index = e.currentTarget.getAttribute('data-index');
+    if (!index) return;
+    setContent((prev) => {
       const updatedContent = [...prev];
       updatedContent[+index] = e.target.value;
       return updatedContent;
@@ -53,10 +59,22 @@ const BlogForm = () => {
       if (!files) return;
       setContentImages(Array.from(files));
     }
+    if (type === 'singleImage') {
+      const index = e.currentTarget.getAttribute('data-index');
+      const file = e.target.files?.[0];
+      if (!file || !index) return;
+      setContent((prev) => {
+        const updatedContent = [...prev];
+        updatedContent[+index] = file;
+        return updatedContent;
+      });
+    }
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // HANDLE IMAGES
     if (!coverImage) return;
     const coverImageUrl = await CloudinaryService.uploadImage(coverImage);
     const contentImagesUrl = await Promise.all(
@@ -65,8 +83,20 @@ const BlogForm = () => {
     formData.contentImages = contentImagesUrl;
     formData.coverImage = coverImageUrl;
 
+    // HANDLE CONTENT
+    if (content.length > 0) {
+      const contentData = content.map(async (x) => {
+        if (typeof x === 'string') return { type: 'text', data: x } as Content;
+        return { type: 'img', data: await CloudinaryService.uploadImage(x) };
+      });
+      const contentDataUrl = await Promise.all(contentData);
+      formData.content = contentDataUrl;
+    }
+
+    // HANDLE REFERENCES
     if (references.length > 0) formData.references = references;
 
+    // SUBMIT FORM
     const response = await postBlogData(formData);
 
     if (!response.ok) {
@@ -82,44 +112,40 @@ const BlogForm = () => {
       }, 3 * 1000);
     }
 
+    // RESET FORM
     setFormData({
       title: '',
       readTime: 0,
       subtext: '',
-      coverImage: '',
-      content: ['']
+      coverImage: ''
     });
+    setCoverImage(undefined);
+    setContentImages([]);
+    setContentList([]);
+    setContent([]);
+    setReferences([]);
   };
 
-  const changeParagraphCount = useCallback(
+  const changeContentCount = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       const val = e.currentTarget.getAttribute('data-value');
       const index = e.currentTarget.getAttribute('data-index');
       if (val === 'increment') {
-        setFormData((prev) => ({
-          ...prev,
-          content: [...prev.content, '']
-        }));
-      }
-      if (val === 'decrement') {
-        setFormData((prev) => {
-          if (prev.content.length <= 1) return { ...prev };
-          return {
-            ...prev,
-            content: [...prev.content.filter((_, i, a) => i !== a.length - 1)]
-          };
-        });
+        if (selectedContent === 'text') {
+          setContentList((prev) => [...prev, 'text']);
+          setContent((prev) => [...prev, '']);
+        } else if (selectedContent === 'img') {
+          setContentList((prev) => [...prev, 'img']);
+          setContent((prev) => [...prev, '']);
+        }
       }
       if (val === 'remove' && index) {
-        setFormData((prev) => {
-          const updatedContent = [...prev.content];
-          updatedContent.splice(+index, 1);
-          return { ...prev, content: updatedContent };
-        });
+        setContentList((prev) => prev.filter((_, i) => i !== +index));
+        setContent((prev) => prev.filter((_, i) => i !== +index));
       }
     },
-    []
+    [selectedContent]
   );
 
   return (
@@ -174,40 +200,75 @@ const BlogForm = () => {
           />
           <label>Content</label>
           <div>
-            <input type="radio" id="text" name="content_type" value="text" />
-            <label htmlFor="text">Text</label>
-            <input type="radio" id="img" name="content_type" value="image" />
-            <label htmlFor="img">Image</label>
+            {radioOptions.map((x, index) => (
+              <span key={index}>
+                <input
+                  type="radio"
+                  id={x}
+                  name="content_type"
+                  value={x}
+                  checked={selectedContent === x}
+                  onChange={(e) => setSelectedContent(e.target.value)}
+                />
+                <label htmlFor={x}>{x}</label>
+              </span>
+            ))}
             <button
               type="button"
               data-value="increment"
-              onClick={changeParagraphCount}
+              onClick={changeContentCount}
             >
               Add
             </button>
           </div>
           <div>
-            {formData.content.map((x, i) => (
+            {contentList.map((x, i) => (
               <div key={i} className={styles.blogContentContainer}>
-                <div>
-                  <label>Paragraph {i + 1}</label>
-                  <button
-                    type="button"
-                    data-value="remove"
-                    data-index={i}
-                    onClick={changeParagraphCount}
-                  >
-                    Delete
-                  </button>
-                </div>
-                <textarea
-                  placeholder={`Enter text for paragraph ${i + 1}`}
-                  rows={6}
-                  data-index={i}
-                  value={formData.content[i]}
-                  onChange={onChangeContent}
-                  required
-                />
+                {x === 'text' && (
+                  <>
+                    <div>
+                      <label>Paragraph {i + 1}</label>
+                      <button
+                        type="button"
+                        data-value="remove"
+                        data-index={i}
+                        onClick={changeContentCount}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                    <textarea
+                      placeholder={`Enter text for paragraph ${i + 1}`}
+                      rows={6}
+                      data-index={i}
+                      required
+                      onChange={onTextContentChange}
+                    />
+                  </>
+                )}
+                {x === 'img' && (
+                  <>
+                    <div>
+                      <label>Paragraph {i + 1}</label>
+                      <button
+                        type="button"
+                        data-value="remove"
+                        data-index={i}
+                        onClick={changeContentCount}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                    <input
+                      name="image"
+                      required
+                      type="file"
+                      data-index={i}
+                      data-image="singleImage"
+                      onChange={onImageChange}
+                    />
+                  </>
+                )}
               </div>
             ))}
           </div>
@@ -237,7 +298,6 @@ const BlogForm = () => {
                   Delete
                 </button>
               </div>
-
               <input
                 placeholder={`reference ${i + 1}`}
                 type="text"
