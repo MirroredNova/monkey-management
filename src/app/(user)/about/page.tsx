@@ -17,6 +17,7 @@ const page = () => (
           alt="Blog"
           width={600}
           height={600}
+          unoptimized
         />
       </div>
       <div className={styles.textContainer}>

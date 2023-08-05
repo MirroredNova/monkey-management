@@ -20,6 +20,7 @@ const RecentBlog = ({ blog }: Props) => (
           alt="blog"
           width={1080}
           height={1080}
+          unoptimized
         />
       </div>
       <div className={styles.textContainer}>

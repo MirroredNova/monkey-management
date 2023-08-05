@@ -19,6 +19,7 @@ const BlogItem = ({ blog }: Props) => (
           width={1080}
           height={1080}
           alt={''}
+          unoptimized
         />
       </Link>
     </div>

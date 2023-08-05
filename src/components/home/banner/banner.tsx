@@ -16,6 +16,7 @@ const Banner = () => (
             alt="Blog"
             width={144}
             height={144}
+            unoptimized
           />
         </div>
         <h2>Welcome!</h2>

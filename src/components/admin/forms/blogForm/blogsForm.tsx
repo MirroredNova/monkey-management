@@ -174,12 +174,16 @@ const BlogForm = () => {
           />
           <label>Content</label>
           <div>
+            <input type="radio" id="text" name="content_type" value="text" />
+            <label htmlFor="text">Text</label>
+            <input type="radio" id="img" name="content_type" value="image" />
+            <label htmlFor="img">Image</label>
             <button
               type="button"
               data-value="increment"
               onClick={changeParagraphCount}
             >
-              Add Paragraph
+              Add
             </button>
           </div>
           <div>

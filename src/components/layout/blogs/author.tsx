@@ -17,7 +17,8 @@ const Author = ({ agoText, readTime }: Props) => (
           src="https://res.cloudinary.com/dhhcxidye/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1685936711/cld-sample-5.jpg"
           width="1000"
           height="1000"
-          alt={''}
+          alt="Author Image"
+          unoptimized
         />
       </div>
       <div className={styles.textContainer}>

@@ -6,7 +6,13 @@ const SiteTitle = () => (
   <div className={styles.navTitle}>
     <div className={styles.navTitleSvg}>
       <a href="/">
-        <Image src="/header.svg" alt="headerImage" width={50} height={50} />
+        <Image
+          src="/header.svg"
+          alt="headerImage"
+          width={50}
+          height={50}
+          unoptimized
+        />
       </a>
     </div>
     <div className={styles.navTitleHeader}>

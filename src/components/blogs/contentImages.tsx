@@ -36,10 +36,14 @@ type Props = {
 
 const ContentImages = ({ imageUrls }: Props) => (
   <div className={styles.carouselContainer}>
+    <div>
+      <h2>Image Gallery</h2>
+    </div>
     <Carousel responsive={responsive} arrows infinite swipeable>
       {imageUrls.map((url, index) => (
         <Image
           key={`image-carousel-${index}`}
+          unoptimized
           src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_BLOGS_CONTENT_IMAGE_TRANSFORMATION}/${url}`}
           alt={''}
           width={1080}

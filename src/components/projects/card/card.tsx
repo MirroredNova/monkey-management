@@ -16,6 +16,7 @@ const ProjectCard = ({ project }: Props) => (
         alt="cover image"
         width={509}
         height={403}
+        unoptimized
       />
     </div>
     <div className={styles.textContainer}>
