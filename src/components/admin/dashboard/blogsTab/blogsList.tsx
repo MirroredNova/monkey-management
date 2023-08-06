@@ -1,10 +1,10 @@
 import { deleteBlogData, fetchBlogData } from '@/services/firebase.service';
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from './blogsList.module.css';
 
 const BlogsList = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogs, setBlogs] = useState<Post[]>([]);
 
   useEffect(() => {
     fetchBlogData().then((blogsData) => {

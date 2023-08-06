@@ -1,9 +1,11 @@
 import React from 'react';
-import { Project } from '@/types/projects';
+import { Post } from '@/types/blogs';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './content.module.css';
 
 type Props = {
-  project: Project;
+  project: Post;
   nextProjId: string | undefined;
   prevProjId: string | undefined;
 };
@@ -16,15 +18,29 @@ const ProjectContent = ({ project, nextProjId, prevProjId }: Props) => {
     <div className={styles.contentContainer}>
       <div className={styles.contentWrapper}>
         <section className={styles.content}>
-          <a href="/projects">{'<'} Back</a>
+          <Link href="/projects">{'<'} Back</Link>
           <h1>{project.title}</h1>
           <h3>{project.subtext}</h3>
-          {project.content.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          {project.content &&
+            project.content.map((content, index) => {
+              if (content.type === 'text') {
+                return <p key={index}>{content.data as string}</p>;
+              }
+              return (
+                <Image
+                  key={index}
+                  src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_BLOGS_CONTENT_IMAGE_TRANSFORMATION}/${content.data}`}
+                  alt={''}
+                  width={1080}
+                  height={1080}
+                  unoptimized
+                  className={styles.contentImage}
+                />
+              );
+            })}
           <div className={styles.buttons}>
-            <a href={prevUrl}>Previous</a>
-            <a href={nextUrl}>Next</a>
+            <Link href={prevUrl}>Previous</Link>
+            <Link href={nextUrl}>Next</Link>
           </div>
         </section>
       </div>

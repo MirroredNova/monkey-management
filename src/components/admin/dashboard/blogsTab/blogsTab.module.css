@@ -7,10 +7,23 @@
 }
 
 .blogsNavList button {
-  font-size: 32px;
+  font-size: 24px;
   border: none;
   padding: 8px;
-  width: 256px;
+}
+
+.blogsNavList a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: none;
+  padding: 0 8px;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(233, 233, 237);
+  height: 100%;
+
 }
 
 .blogsContent {

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import BlogService from '@/services/blog.service';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './content.module.css';
 import Author from '../layout/blogs/author';
 import References from './references';
 import ContentImages from './contentImages';
 
 type Props = {
-  blog: Blog;
+  blog: Post;
   nextBlogId: string | undefined;
   prevBlogId: string | undefined;
 };
@@ -21,7 +22,7 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
     <div className={styles.contentContainer}>
       <div className={styles.contentWrapper}>
         <section className={styles.content}>
-          <a href="/blogs">{'<'} Back</a>
+          <Link href="/blogs">{'<'} Back</Link>
           <h1>{blog.title}</h1>
           {blog?.creationDate && (
             <Author
@@ -52,8 +53,8 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
           )}
           {blog.references && <References referencesList={blog.references} />}
           <div className={styles.buttons}>
-            <a href={prevUrl}>Previous</a>
-            <a href={nextUrl}>Next</a>
+            <Link href={prevUrl}>Previous</Link>
+            <Link href={nextUrl}>Next</Link>
           </div>
         </section>
       </div>

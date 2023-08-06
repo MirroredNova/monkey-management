@@ -1,5 +1,4 @@
-import { Blog } from '@/types/blogs';
-import { Project } from '@/types/projects';
+import { Post } from '@/types/blogs';
 import { cache } from 'react';
 
 //* ******************************//
@@ -8,7 +7,7 @@ import { cache } from 'react';
 
 export const fetchBlogData = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FIREBASE_BLOG_URL}.json`,
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}blogs.json`,
     {
       next: { revalidate: 30 }
     }
@@ -18,7 +17,7 @@ export const fetchBlogData = async () => {
     throw new Error('Could not fetch blog data');
   }
 
-  const blogsData: Blog[] = [];
+  const blogsData: Post[] = [];
   const data = await response.json();
   if (!data) {
     return blogsData;
@@ -26,17 +25,17 @@ export const fetchBlogData = async () => {
   Object.entries(data).forEach(([index, value]) => {
     blogsData.push({
       id: index,
-      ...(value as Blog)
-    } as Blog);
+      ...(value as Post)
+    } as Post);
   });
   return blogsData;
 };
 
-export const postBlogData = async (formData: Blog) => {
+export const postFormData = async (formData: Post, type: string) => {
   const newForm = formData;
   newForm.creationDate = Date.now();
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FIREBASE_BLOG_URL}.json`,
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}${type}.json`,
     {
       method: 'POST',
       body: JSON.stringify(newForm)
@@ -47,7 +46,7 @@ export const postBlogData = async (formData: Blog) => {
 
 export const deleteBlogData = async (id: string) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FIREBASE_BLOG_URL}/${id}.json`,
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}blogs/${id}.json`,
     {
       method: 'DELETE'
     }
@@ -61,7 +60,7 @@ export const deleteBlogData = async (id: string) => {
 
 export const fetchProjectData = cache(async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_URL}.json`,
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}projects.json`,
     {
       next: { revalidate: 30 }
     }
@@ -71,7 +70,7 @@ export const fetchProjectData = cache(async () => {
     throw new Error('Could not fetch project data');
   }
 
-  const projectData: Project[] = [];
+  const projectData: Post[] = [];
   const data = await response.json();
   if (!data) {
     return projectData;
@@ -79,28 +78,15 @@ export const fetchProjectData = cache(async () => {
   Object.entries(data).forEach(([index, value]) => {
     projectData.push({
       id: index,
-      ...(value as Project)
-    } as Project);
+      ...(value as Post)
+    } as Post);
   });
   return projectData;
 });
 
-export const postProjectData = async (formData: Project) => {
-  const newForm = formData;
-  newForm.creationDate = Date.now();
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_URL}.json`,
-    {
-      method: 'POST',
-      body: JSON.stringify(newForm)
-    }
-  );
-  return response;
-};
-
 export const deleteProjectData = async (id: string) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_URL}/${id}.json`,
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}projects/${id}.json`,
     {
       method: 'DELETE'
     }

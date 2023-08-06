@@ -6,7 +6,7 @@ import React, { useCallback, useState } from 'react';
 import styles from './styles.module.css';
 
 const Page = () => {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(true);
 
   const setAuthenticatedValue = useCallback((value: boolean) => {
     setAuthenticated(value);

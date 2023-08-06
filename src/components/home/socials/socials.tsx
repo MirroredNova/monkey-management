@@ -12,22 +12,23 @@ import {
   instagramLink,
   tiktokLink
 } from '@/constants/constants';
+import Link from 'next/link';
 import styles from './socials.module.css';
 
 const Socials = () => (
   <div className={styles.container}>
-    <a href={twitterLink}>
+    <Link href={twitterLink}>
       <FontAwesomeIcon icon={faTwitter} />
-    </a>
-    <a href={instagramLink}>
+    </Link>
+    <Link href={instagramLink}>
       <FontAwesomeIcon icon={faInstagram} />
-    </a>
-    <a href={youtubeLink}>
+    </Link>
+    <Link href={youtubeLink}>
       <FontAwesomeIcon icon={faYoutube} />
-    </a>
-    <a href={tiktokLink}>
+    </Link>
+    <Link href={tiktokLink}>
       <FontAwesomeIcon icon={faTiktok} />
-    </a>
+    </Link>
   </div>
 );
 

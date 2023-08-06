@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from './references.module.css';
 
 type Props = {
@@ -12,7 +13,7 @@ const References = ({ referencesList }: Props) => (
       {referencesList.map((reference, index) => (
         <li key={index}>
           <span>{index + 1}.</span>
-          <a href={reference}>{reference}</a>
+          <Link href={reference}>{reference}</Link>
         </li>
       ))}
     </ul>

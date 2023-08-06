@@ -3,11 +3,11 @@ import {
   deleteProjectData,
   fetchProjectData
 } from '@/services/firebase.service';
-import { Project } from '@/types/projects';
+import { Post } from '@/types/blogs';
 import styles from './projectList.module.css';
 
 const ProjectList = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Post[]>([]);
 
   useEffect(() => {
     fetchProjectData().then((projectsData) => {
@@ -31,9 +31,6 @@ const ProjectList = () => {
         {projects.map((project) => (
           <li key={project.id}>
             <h1>{project.title}</h1>
-            {project.content?.map((p) => (
-              <p key={Math.random()}>{p}</p>
-            ))}
             <button onClick={() => deleteProject(project.id)}>delete</button>
           </li>
         ))}

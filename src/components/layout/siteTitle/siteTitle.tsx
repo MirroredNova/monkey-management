@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './siteTitle.module.css';
 
 const SiteTitle = () => (
   <div className={styles.navTitle}>
     <div className={styles.navTitleSvg}>
-      <a href="/">
+      <Link href="/">
         <Image
           src="/header.svg"
           alt="headerImage"
@@ -13,12 +14,12 @@ const SiteTitle = () => (
           height={50}
           unoptimized
         />
-      </a>
+      </Link>
     </div>
     <div className={styles.navTitleHeader}>
-      <a href="/">
+      <Link href="/">
         <span>Monkey Management</span>
-      </a>
+      </Link>
     </div>
   </div>
 );

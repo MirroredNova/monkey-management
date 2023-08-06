@@ -3,7 +3,7 @@ export type Content = {
   data: string;
 };
 
-export type Blog = {
+export type Post = {
   id?: string;
   title: string;
   readTime: number;

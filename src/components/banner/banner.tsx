@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
-import { Project } from '@/types/projects';
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import styles from './banner.module.css';
 
 type Props = {
-  object: Project | Blog;
+  object: Post;
 };
 
 const Banner = ({ object }: Props) => (

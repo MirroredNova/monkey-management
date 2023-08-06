@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Project } from '@/types/projects';
+import { Post } from '@/types/blogs';
 import styles from './card.module.css';
 
 type Props = {
-  project: Project;
+  project: Post;
 };
 
 const ProjectCard = ({ project }: Props) => (

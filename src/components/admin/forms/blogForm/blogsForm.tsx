@@ -1,13 +1,14 @@
 import CloudinaryService from '@/services/cloudinary.service';
-import { postBlogData } from '@/services/firebase.service';
-import { Blog, Content } from '@/types/blogs';
-import React, { useCallback, useState } from 'react';
+import { postFormData } from '@/services/firebase.service';
+import { Post, Content } from '@/types/blogs';
+import React, { useCallback, useRef, useState } from 'react';
 import styles from './blogsForm.module.css';
 
 const radioOptions = ['text', 'img'];
+const creationTypeRadioOptions = ['blogs', 'projects'];
 
 const BlogForm = () => {
-  const [formData, setFormData] = useState<Blog>({
+  const [formData, setFormData] = useState<Post>({
     title: '',
     readTime: 0,
     subtext: '',
@@ -15,10 +16,14 @@ const BlogForm = () => {
   });
   const [notification, setNotification] = useState('');
   const [coverImage, setCoverImage] = useState<File | undefined>(undefined);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [contentImages, setContentImages] = useState<File[]>([] as File[]);
   const [references, setReferences] = useState<string[]>([]);
   const [contentList, setContentList] = useState<string[]>([]);
   const [content, setContent] = useState<(string | File)[]>([]);
+  const [selectedFormType, setSelectedFormType] = useState<string>(
+    creationTypeRadioOptions[0]
+  );
   const [selectedContent, setSelectedContent] = useState<string>(
     radioOptions[0]
   );
@@ -97,7 +102,7 @@ const BlogForm = () => {
     if (references.length > 0) formData.references = references;
 
     // SUBMIT FORM
-    const response = await postBlogData(formData);
+    const response = await postFormData(formData, selectedFormType);
 
     if (!response.ok) {
       setNotification('Something went Wrong');
@@ -120,6 +125,9 @@ const BlogForm = () => {
       coverImage: ''
     });
     setCoverImage(undefined);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
     setContentImages([]);
     setContentList([]);
     setContent([]);
@@ -153,6 +161,21 @@ const BlogForm = () => {
       <form className={styles.blogsForm} onSubmit={onSubmit}>
         {notification && <h1>{notification}</h1>}
         <div className={styles.mainContentContainer}>
+          <div>
+            {creationTypeRadioOptions.map((x, index) => (
+              <span key={index}>
+                <input
+                  type="radio"
+                  id={x}
+                  name="form_type"
+                  value={x}
+                  checked={selectedFormType === x}
+                  onChange={(e) => setSelectedFormType(e.target.value)}
+                />
+                <label htmlFor={x}>{x}</label>
+              </span>
+            ))}
+          </div>
           <h1>Main Body Information</h1>
           <label>Title</label>
           <input
@@ -186,6 +209,7 @@ const BlogForm = () => {
             required
             type="file"
             data-image="coverImage"
+            ref={fileInputRef}
           />
         </div>
         <div className={styles.contentContainer}>
