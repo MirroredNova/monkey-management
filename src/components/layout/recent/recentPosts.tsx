@@ -12,7 +12,7 @@ const RecentPosts = ({ blogData }: Props) => {
   const isEmpty = blogData.length <= 1;
 
   return (
-    <section className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.body}>
         <div className={styles.title}>
           <h2>Recent Post</h2>
@@ -30,7 +30,7 @@ const RecentPosts = ({ blogData }: Props) => {
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

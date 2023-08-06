@@ -31,6 +31,20 @@
   }
 }
 
+.bannerSocials {
+  padding: 24px 24px 0 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 400px) {
+  .bannerSocials {
+    display: none;
+  }
+}
+
 .bannerWelcome a {
   text-decoration: none;
   color: var(--light);

@@ -29,12 +29,7 @@ const page = async () => {
             <h3>{content.about.heading}</h3>
             {content.about.paragraphs.map(
               (paragraph: string, index: number) => (
-                <>
-                  <p key={index}>{paragraph}</p>
-                  {index !== content.about.paragraphs.length - 1 && (
-                    <p>&nbsp;</p>
-                  )}
-                </>
+                <p key={index}>{paragraph}</p>
               )
             )}
           </div>

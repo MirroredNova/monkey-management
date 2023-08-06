@@ -1,56 +1,64 @@
 .aboutContainer {
   width: 80%;
+  max-width: 800px;
   margin: auto;
   padding-bottom: 50px;
 }
 
-.aboutContainer > div {
-  grid-column-start: 2;
-  grid-column-end: 3;
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.content {
-  padding-top: 36px;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-template-rows: 100%;
-  height: 600px;
+@media screen and (min-width: 600px) {
+  .content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 100%; 
+    height: 100%;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .content > * {
   outline: 1px solid var(--dark);
 }
 
+.image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 50%;
+}
+
 .textContainer {
-  padding: 25px;
   background-color: var(--primary);
   color: var(--light);
-  display: grid;
+  display: flex;
+  height: 100%;
 }
 
 .text {
-  width: 430px;
-  margin: auto;
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 30px;
 }
 
 .text > h3 {
   font-size: 36px;
   font-family: initial;
   font-weight: 600;
-  padding-bottom: 30px;
 }
 
 .text > p {
   line-height: 1.5em;
   font-size: 15px;
-}
-
-.text > span {
-  display: block;
-}
-
-.image > img {
-  width: 100%;
-  object-fit: cover;
-  object-position: 30% 50%;
 }

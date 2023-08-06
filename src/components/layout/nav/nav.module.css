@@ -8,6 +8,7 @@
 }
 
 .navBar {
+  margin-left: 10px;
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -37,18 +38,22 @@
   padding: 10px 0;
 }
 
+.navHamburgerContainer ul li:not(:last-of-type) {
+  border-bottom: 1px solid var(--primary);
+} 
+
 .navHamburgerContainer ul li a:hover {
   background-color: var(--primary);
   color: var(--light);
 }
 
-@media screen and (min-width: 0px) and (max-width: 399px) {
+@media screen and (min-width: 0px) {
   .navBar {
     padding: 0;
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 599px){
+@media screen and (min-width: 435px) {
   .navBar {
     padding: 0 20px;
   }
@@ -102,7 +107,6 @@
 
   .navHamburger {
     display: block;
-    padding: 10px;
     margin: 10px;
   }
   

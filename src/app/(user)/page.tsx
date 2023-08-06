@@ -4,6 +4,7 @@ import RecentPosts from '@/components/layout/recent/recentPosts';
 import Socials from '@/components/home/socials/socials';
 import React from 'react';
 import { fetchData } from '@/services/firebase.service';
+import styles from './styles.module.css';
 
 const page = async () => {
   const blogData = await fetchData('blogs');
@@ -11,9 +12,15 @@ const page = async () => {
   return (
     <div>
       <Banner />
-      <Socials />
-      <FeaturedPosts blogData={blogData} />
-      <RecentPosts blogData={blogData} />
+      <div className={styles.socialsContainer}>
+        <Socials />
+      </div>
+      <section>
+        <FeaturedPosts blogData={blogData} />
+      </section>
+      <section>
+        <RecentPosts blogData={blogData} />
+      </section>
     </div>
   );
 };

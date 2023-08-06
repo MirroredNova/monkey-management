@@ -8,13 +8,12 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 import { fetchContentData } from '@/services/firebase.service';
-import styles from './socials.module.css';
 
 const Socials = async () => {
   const content = await fetchContentData();
 
   return (
-    <div className={styles.container}>
+    <>
       <Link href={content.socials.twitter}>
         <FontAwesomeIcon icon={faTwitter} />
       </Link>
@@ -27,7 +26,7 @@ const Socials = async () => {
       <Link href={content.socials.tiktok}>
         <FontAwesomeIcon icon={faTiktok} />
       </Link>
-    </div>
+    </>
   );
 };
 

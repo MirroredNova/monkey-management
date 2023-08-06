@@ -12,7 +12,7 @@ const FeaturedPosts = ({ blogData }: Props) => {
   const featuredBlog = blogData.at(-1);
 
   return (
-    <section className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.body}>
         <div className={styles.title}>
           <h2>Featured Post</h2>
@@ -25,7 +25,7 @@ const FeaturedPosts = ({ blogData }: Props) => {
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

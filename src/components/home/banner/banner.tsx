@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { fetchContentData } from '@/services/firebase.service';
 import styles from './banner.module.css';
+import Socials from '../socials/socials';
 
 const Banner = async () => {
   const content = await fetchContentData();
@@ -26,6 +27,9 @@ const Banner = async () => {
           <h2>{content.banner.header}</h2>
           <p>{content.banner.subheader}</p>
         </Link>
+        <div className={styles.bannerSocials}>
+          <Socials />
+        </div>
       </div>
     </section>
   );
