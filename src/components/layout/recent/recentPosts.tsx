@@ -1,11 +1,11 @@
 import React from 'react';
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import RecentBlog from '../blogs/recentBlog';
 import Empty from '../empty/empty';
 import styles from './recentPosts.module.css';
 
 type Props = {
-  blogData: Blog[];
+  blogData: Post[];
 };
 
 const RecentPosts = ({ blogData }: Props) => {

@@ -1,4 +1,4 @@
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,7 @@ import Link from 'next/link';
 import styles from './recentBlog.module.css';
 
 type Props = {
-  blog?: Blog;
+  blog?: Post;
 };
 
 const RecentBlog = ({ blog }: Props) => (

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import Image from 'next/image';
 import BlogService from '@/services/blog.service';
 import Link from 'next/link';
 import styles from './featuredBlog.module.css';
 
 type Props = {
-  blog: Blog;
+  blog: Post;
 };
 
 const FeaturedBlog = ({ blog }: Props) => (

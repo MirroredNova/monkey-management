@@ -1,11 +1,11 @@
 import React from 'react';
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import FeaturedBlog from '../blogs/featuredBlog';
 import Empty from '../empty/empty';
 import styles from './featuredPosts.module.css';
 
 type Props = {
-  blogData: Blog[];
+  blogData: Post[];
 };
 
 const FeaturedPosts = ({ blogData }: Props) => {
