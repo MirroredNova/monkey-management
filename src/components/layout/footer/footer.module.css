@@ -1,16 +1,21 @@
 .container {
+  padding: 20px;
   background-color: var(--dark);
   color: var(--secondary);
   display: flex;
   justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .body {
-  padding: 10px 0px;
-  width: 940px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  grid-template-rows: 1fr;
+  width: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .body > div {
@@ -24,17 +29,9 @@
   height: 80%;
 }
 
-.links {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  display: grid;
-}
-
-.links ul {
-  height: 80%;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+.links li:not(:last-child) {
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .links ul li a {

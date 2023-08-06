@@ -6,30 +6,29 @@ import {
   faTwitter,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons';
-import {
-  twitterLink,
-  youtubeLink,
-  instagramLink,
-  tiktokLink
-} from '@/constants/constants';
 import Link from 'next/link';
+import { fetchContentData } from '@/services/firebase.service';
 import styles from './socials.module.css';
 
-const Socials = () => (
-  <div className={styles.container}>
-    <Link href={twitterLink}>
-      <FontAwesomeIcon icon={faTwitter} />
-    </Link>
-    <Link href={instagramLink}>
-      <FontAwesomeIcon icon={faInstagram} />
-    </Link>
-    <Link href={youtubeLink}>
-      <FontAwesomeIcon icon={faYoutube} />
-    </Link>
-    <Link href={tiktokLink}>
-      <FontAwesomeIcon icon={faTiktok} />
-    </Link>
-  </div>
-);
+const Socials = async () => {
+  const content = await fetchContentData();
+
+  return (
+    <div className={styles.container}>
+      <Link href={content.socials.twitter}>
+        <FontAwesomeIcon icon={faTwitter} />
+      </Link>
+      <Link href={content.socials.instagram}>
+        <FontAwesomeIcon icon={faInstagram} />
+      </Link>
+      <Link href={content.socials.youtube}>
+        <FontAwesomeIcon icon={faYoutube} />
+      </Link>
+      <Link href={content.socials.tiktok}>
+        <FontAwesomeIcon icon={faTiktok} />
+      </Link>
+    </div>
+  );
+};
 
 export default Socials;

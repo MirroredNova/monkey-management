@@ -1,7 +1,7 @@
 import { Post } from '@/types/blogs';
 
 //* ******************************//
-//  BLOG DATA FUNCTIONS ******** //
+//  DATA FUNCTIONS ************* //
 //* ****************************//
 
 export const fetchData = async (type: string) => {
@@ -51,4 +51,23 @@ export const deleteData = async (id: string, type: string) => {
     }
   );
   return response;
+};
+
+//* ****************************//
+//  CONTENT FUNCTIONS ******** //
+//* **************************//
+
+export const fetchContentData = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}content.json`,
+    {
+      next: { revalidate: 30 }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error('Could not fetch blog data');
+  }
+
+  return response.json();
 };
