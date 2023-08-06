@@ -3,6 +3,15 @@
    License: none (public domain)
 */
 
+/*
+  Breakpoints
+  Largest: 1024px
+  Large: 900px
+  Medium: 768px
+  Small: 600px
+  Smallest: 400px
+*/
+
 html,
 body,
 div,
@@ -150,3 +159,5 @@ body {
   --middle: rgb(139, 156, 141);
   --light: rgb(242, 243, 242);
 }
+
+

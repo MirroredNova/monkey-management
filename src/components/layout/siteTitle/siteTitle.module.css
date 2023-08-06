@@ -1,12 +1,8 @@
 .navTitle {
-  margin: 10px;
+  margin: 0 10px;
   display: flex;
   align-items: center;
   color: var(--secondary);
-}
-
-.navTitle div {
-  padding: 10px;
 }
 
 .navTitleHeader span {
@@ -21,6 +17,7 @@
 }
 
 .navTitleSvg {
+  padding: 0 10px;
   width: 50px;
   height: 50px;
 }

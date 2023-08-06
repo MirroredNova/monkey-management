@@ -1,16 +1,63 @@
-.navBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navContainer {
   background-color: var(--dark);
   height: 70px;
-  padding: 0 70px;
   position: fixed;
   width: 100%;
   z-index: 100;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.navBar {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navHamburgerContainer {
+  position: relative;
+  background-color: var(--secondary);
+}
+
+.navHamburgerContainer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.navHamburgerContainer ul li {
+  width: 100%;
+  text-align: center;
+}
+
+.navHamburgerContainer ul li a {
+  text-decoration: none;
+  color: var(--dark);
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+}
+
+.navHamburgerContainer ul li a:hover {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+@media screen and (min-width: 0px) and (max-width: 399px) {
+  .navBar {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 599px){
+  .navBar {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .navBar {
+    padding: 0 55px;
+  }
 }
 
 .searchBar {
@@ -48,11 +95,43 @@
   line-height: normal;
 }
 
-.navList {
-  display: flex;
-  flex-direction: row;
-  color: var(--light);
+@media screen and (max-width: 768px) {
+  .navList {
+    display: none;
+  }
+
+  .navHamburger {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .navHamburger button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .navHamburger svg {
+    width: 30px;
+    height: 30px;
+    color: var(--light);
+    vertical-align: middle;
+    line-height: normal;
+  }
 }
+
+@media screen and (min-width: 768px) {
+  .navList {
+    display: flex;
+    flex-direction: row;
+    color: var(--light);
+    margin: 0 10px;
+  }
+  .navHamburger, .navHamburgerContainer {
+    display: none;
+  }
+}
+
 
 .navList li {
   margin: 10px;
