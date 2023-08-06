@@ -1,8 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  deleteProjectData,
-  fetchProjectData
-} from '@/services/firebase.service';
+import { deleteData, fetchData } from '@/services/firebase.service';
 import { Post } from '@/types/blogs';
 import styles from './projectList.module.css';
 
@@ -10,14 +7,14 @@ const ProjectList = () => {
   const [projects, setProjects] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetchProjectData().then((projectsData) => {
+    fetchData('projects').then((projectsData) => {
       setProjects(projectsData);
     });
   }, []);
 
   const deleteProject = useCallback((id: string | undefined) => {
     if (id) {
-      deleteProjectData(id).then(() => {
+      deleteData(id, 'projects').then(() => {
         setProjects((prevProjects) =>
           prevProjects.filter((proj) => proj.id !== id)
         );

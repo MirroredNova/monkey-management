@@ -5,6 +5,7 @@ import BlogsForm from '../../forms/blogForm/blogsForm';
 import BlogsList from './blogsList';
 import styles from './blogsTab.module.css';
 import ProjectList from '../projectsTab/projectList';
+import ModifyContentTab from '../modifyContentTab/modifyContentTab';
 
 type TabMap = {
   [key: string]: JSX.Element;
@@ -12,6 +13,7 @@ type TabMap = {
 
 const tabMap: TabMap = {
   new: <BlogsForm />,
+  modifyContent: <ModifyContentTab />,
   existingBlogs: <BlogsList />,
   existingProjects: <ProjectList />
 };
@@ -25,6 +27,11 @@ const BlogsTab = () => {
       <ul className={styles.blogsNavList}>
         <li>
           <button onClick={() => setActiveTab('new')}>New Post</button>
+        </li>
+        <li>
+          <button onClick={() => setActiveTab('modifyContent')}>
+            Modify Content
+          </button>
         </li>
         <li>
           <button onClick={() => setActiveTab('existingBlogs')}>

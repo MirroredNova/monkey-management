@@ -1,4 +1,4 @@
-import { deleteBlogData, fetchBlogData } from '@/services/firebase.service';
+import { fetchData, deleteData } from '@/services/firebase.service';
 import { Post } from '@/types/blogs';
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from './blogsList.module.css';
@@ -7,14 +7,14 @@ const BlogsList = () => {
   const [blogs, setBlogs] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetchBlogData().then((blogsData) => {
+    fetchData('blogs').then((blogsData) => {
       setBlogs(blogsData);
     });
   }, []);
 
   const deleteBlog = useCallback((id: string | undefined) => {
     if (id) {
-      deleteBlogData(id).then(() => {
+      deleteData(id, 'blogs').then(() => {
         setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog.id !== id));
       });
     }

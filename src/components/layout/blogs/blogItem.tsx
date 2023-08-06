@@ -1,4 +1,4 @@
-import { Blog } from '@/types/blogs';
+import { Post } from '@/types/blogs';
 import Image from 'next/image';
 import React from 'react';
 import BlogService from '@/services/blog.service';
@@ -7,7 +7,7 @@ import Author from './author';
 import styles from './blogItem.module.css';
 
 type Props = {
-  blog?: Blog;
+  blog?: Post;
 };
 
 const BlogItem = ({ blog }: Props) => (

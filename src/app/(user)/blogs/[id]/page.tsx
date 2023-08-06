@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchBlogData } from '@/services/firebase.service';
+import { fetchData } from '@/services/firebase.service';
 import Banner from '@/components/banner/banner';
 import BlogContent from '@/components/blogs/content';
 
@@ -14,7 +14,7 @@ type Props = {
 };
 
 const page = async ({ params }: Props) => {
-  const blogs = await fetchBlogData();
+  const blogs = await fetchData('blogs');
   const blogIndex = blogs.findIndex((blog) => blog.id === params.id);
 
   return (

@@ -3,10 +3,10 @@ import FeaturedPosts from '@/components/layout/featured/featuredPosts';
 import RecentPosts from '@/components/layout/recent/recentPosts';
 import Socials from '@/components/home/socials/socials';
 import React from 'react';
-import { fetchBlogData } from '@/services/firebase.service';
+import { fetchData } from '@/services/firebase.service';
 
 const page = async () => {
-  const blogData = await fetchBlogData();
+  const blogData = await fetchData('blogs');
 
   return (
     <div>

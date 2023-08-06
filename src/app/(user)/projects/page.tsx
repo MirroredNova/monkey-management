@@ -1,7 +1,7 @@
 import PageTitle from '@/components/layout/pageTitle/pageTitle';
 import ProjectCard from '@/components/projects/card/card';
 import React from 'react';
-import { fetchProjectData } from '@/services/firebase.service';
+import { fetchData } from '@/services/firebase.service';
 import Empty from '@/components/layout/empty/empty';
 import styles from './styles.module.css';
 
@@ -10,8 +10,8 @@ export const metadata = {
 };
 
 const page = async () => {
-  const blogData = await fetchProjectData();
-  const isEmpty = blogData.length === 0;
+  const projects = await fetchData('projects');
+  const isEmpty = projects.length === 0;
 
   return (
     <div className={styles.projectContainer}>
@@ -20,7 +20,7 @@ const page = async () => {
         {isEmpty ? (
           <Empty />
         ) : (
-          blogData
+          projects
             .reverse()
             .map((project) => (
               <ProjectCard key={project.id} project={project} />
