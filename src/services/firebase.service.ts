@@ -71,3 +71,17 @@ export const fetchContentData = async () => {
 
   return response.json();
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const postContentData = async (formData: any) => {
+  const newForm = formData;
+  newForm.creationDate = Date.now();
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_FIREBASE_URL}content.json`,
+    {
+      method: 'PUT',
+      body: JSON.stringify(newForm)
+    }
+  );
+  return response;
+};

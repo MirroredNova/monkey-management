@@ -1,0 +1,42 @@
+.contentForm {
+  width: 100%;
+}
+
+.contentForm * {
+  padding: 4px;
+}
+
+.contentForm label {
+  display: block;
+}
+
+.contentForm textarea {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.contentForm > div {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.contentForm > div > h4 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.contentForm > div > div > h4 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contentForm > div > div > div > h4 {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
