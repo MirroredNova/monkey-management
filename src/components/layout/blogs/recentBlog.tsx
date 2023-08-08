@@ -1,11 +1,9 @@
 import { Post } from '@/types/blogs';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faComment } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 import styles from './recentBlog.module.css';
+import Times from '../times/times';
 
 type Props = {
   blog?: Post;
@@ -24,11 +22,8 @@ const RecentBlog = ({ blog }: Props) => (
         />
       </div>
       <div className={styles.textContainer}>
+        {blog && <Times blog={blog} />}
         <h2>{blog?.title}</h2>
-        <div className={styles.iconContainer}>
-          <FontAwesomeIcon icon={faComment as IconProp} />
-          <span> 0</span>
-        </div>
       </div>
     </div>
   </Link>

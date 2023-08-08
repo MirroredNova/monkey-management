@@ -30,8 +30,20 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
+  grid-template-rows: auto;
+}
+
+@media (min-width: 320px) and (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .content a {

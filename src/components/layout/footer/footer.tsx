@@ -28,11 +28,6 @@ const Footer = async () => {
             </li>
           </ul>
         </div>
-        {/* <div className={styles.form}>
-          <p>Subscribe here and get the latest news!</p>
-          <input placeholder="Email" />
-          <button>Subscribe</button>
-        </div> */}
       </div>
       <div className={styles.tag}>
         <p>{content.footer.note}</p>

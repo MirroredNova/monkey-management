@@ -4,6 +4,7 @@ import Image from 'next/image';
 import BlogService from '@/services/blog.service';
 import Link from 'next/link';
 import styles from './featuredBlog.module.css';
+import Times from '../times/times';
 
 type Props = {
   blog: Post;
@@ -22,16 +23,11 @@ const FeaturedBlog = ({ blog }: Props) => (
         />
       </div>
       <div className={styles.textContainer}>
-        <div className={styles.timeContainer}>
-          {blog.creationDate &&
-            BlogService.timeSince(new Date(blog?.creationDate))}{' '}
-          &bull; {`${blog.readTime} min read`}
-        </div>
+        <Times blog={blog} />
         <div className={styles.contentContainer}>
           <h1>{blog?.title}</h1>
           <p>{blog?.subtext}</p>
         </div>
-        {/* <div className={styles.commentContainer}>0 comments</div> */}
       </div>
     </div>
   </Link>

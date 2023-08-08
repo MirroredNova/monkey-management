@@ -1,0 +1,9 @@
+.timeContainer {
+  font-family: initial;
+}
+
+@media screen and (max-width: 900px) {
+  .timeContainer {
+    text-align: center;
+  }
+}
