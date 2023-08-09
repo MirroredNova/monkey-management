@@ -9,7 +9,7 @@ const Banner = async () => {
   const content = await fetchContentData();
 
   return (
-    <section>
+    <div className={styles.container}>
       <div className={styles.bannerContainer}>
         <video src={'/bannerVideo.mp4'} autoPlay loop muted />
       </div>
@@ -31,7 +31,7 @@ const Banner = async () => {
           <Socials />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

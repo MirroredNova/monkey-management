@@ -12,18 +12,16 @@ const FeaturedPosts = ({ blogData }: Props) => {
   const featuredBlog = blogData.at(-1);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.body}>
-        <div className={styles.title}>
-          <h2>Featured Post</h2>
-        </div>
-        <div>
-          {blogData.length === 0 ? (
-            <Empty />
-          ) : (
-            featuredBlog && <FeaturedBlog blog={featuredBlog} />
-          )}
-        </div>
+    <div className={styles.body}>
+      <div className={styles.title}>
+        <h2>Featured Post</h2>
+      </div>
+      <div>
+        {blogData.length === 0 ? (
+          <Empty />
+        ) : (
+          featuredBlog && <FeaturedBlog blog={featuredBlog} />
+        )}
       </div>
     </div>
   );
