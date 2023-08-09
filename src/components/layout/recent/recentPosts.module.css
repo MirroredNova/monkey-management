@@ -14,12 +14,7 @@
   grid-gap: 24px;
 }
 
-@media screen and (max-width: 400px) {
-  .body {
-    width: 100%;
-    margin: 0 12px;
-  }
-}
+
 
 .title h2 {
   font-size: 30px;
@@ -34,6 +29,15 @@
   grid-template-rows: auto;
 }
 
+.content a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.emptyContent {
+  border: 1px solid lightgrey;
+}
+
 @media (min-width: 320px) and (max-width: 900px) {
   .content {
     grid-template-columns: 1fr;
@@ -46,11 +50,13 @@
   }
 }
 
-.content a {
-  text-decoration: none;
-  color: var(--dark);
-}
+@media screen and (max-width: 400px) {
+  .body {
+    width: 100%;
+    margin: 0 12px;
+  }
 
-.emptyContent {
-  border: 1px solid lightgrey;
+  .title {
+    text-align: center;
+  }
 }

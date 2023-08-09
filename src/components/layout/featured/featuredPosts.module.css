@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 64px;
 }
 
 .body {
@@ -10,18 +9,12 @@
   background-color: var(--dark);
   color: var(--light);
   width: 940px;
-  margin: -122px 48px 0 48px;
+  margin: -122px 48px 64px 48px;
   padding: 24px 48px;
   display: grid;
   grid-template-rows: auto 1fr;
   grid-gap: 24px;
-}
-
-@media screen and (max-width: 400px) {
-  .body {
-    width: 100%;
-    margin: -122px 12px 0 12px;
-  }
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .body a {
@@ -33,4 +26,21 @@
   font-size: 30px;
   font-family: initial;
   font-weight: bolder;
+}
+
+@media screen and (max-width: 400px) {
+  .body {
+    width: 100%;
+    margin: -122px 12px 64px 12px;
+  }
+
+  .title {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .body {
+    padding: 24px 24px 12px 24px;
+  }
 }

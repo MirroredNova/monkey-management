@@ -6,7 +6,7 @@ import styles from './recentBlog.module.css';
 import Times from '../times/times';
 
 type Props = {
-  blog?: Post;
+  blog: Post;
 };
 
 const RecentBlog = ({ blog }: Props) => (
@@ -22,7 +22,7 @@ const RecentBlog = ({ blog }: Props) => (
         />
       </div>
       <div className={styles.textContainer}>
-        {blog && <Times blog={blog} />}
+        <Times blog={blog} />
         <h2>{blog?.title}</h2>
       </div>
     </div>

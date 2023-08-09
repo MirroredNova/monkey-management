@@ -1,7 +1,6 @@
 import React from 'react';
 import { Post } from '@/types/blogs';
 import Image from 'next/image';
-import BlogService from '@/services/blog.service';
 import Link from 'next/link';
 import styles from './featuredBlog.module.css';
 import Times from '../times/times';
