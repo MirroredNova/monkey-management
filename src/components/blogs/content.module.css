@@ -1,18 +1,8 @@
-.contentContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.contentWrapper {
-  margin-top: -100px;
-  background-color: white;
-  width: 980px;
-}
-
 .content {
   margin: 42px;
+  padding: 0 64px;
   display: grid;
-  grid-template-columns: 680px;
+  grid-template-columns: 1fr;
   justify-content: center;
   row-gap: 36px;
 }
@@ -42,6 +32,7 @@
 
 .content > p {
   line-height: 24px;
+  text-align: justify;
 }
 
 .content > img {
@@ -52,4 +43,35 @@
 .buttons {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 0 16px;
+  }
+
+  .content > h1 {
+    font-size: 32px;
+  }
+
+  .content > h3 {
+    font-size: 24px;
+  }
+
+  .content > p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    margin: 18px;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .content {
+    margin: 18px;
+  }
 }

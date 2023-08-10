@@ -18,7 +18,7 @@
 
 .navHamburgerContainer {
   position: relative;
-  background-color: var(--secondary);
+  background-color: var(--light);
 }
 
 .navHamburgerContainer ul {

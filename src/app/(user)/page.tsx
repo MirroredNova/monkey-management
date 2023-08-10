@@ -10,7 +10,7 @@ const page = async () => {
   const blogData = await fetchData('blogs');
 
   return (
-    <div className={styles.container}>
+    <>
       <Banner />
       <div className={styles.socialsContainer}>
         <Socials />
@@ -19,7 +19,7 @@ const page = async () => {
         <FeaturedPosts blogData={blogData} />
         <RecentPosts blogData={blogData} />
       </div>
-    </div>
+    </>
   );
 };
 

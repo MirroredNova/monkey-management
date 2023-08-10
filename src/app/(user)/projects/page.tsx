@@ -14,20 +14,22 @@ const page = async () => {
   const isEmpty = projects.length === 0;
 
   return (
-    <div className={styles.projectContainer}>
+    <>
       <PageTitle>Projects</PageTitle>
-      <div className={isEmpty ? styles.emptyContent : styles.content}>
-        {isEmpty ? (
-          <Empty />
-        ) : (
-          projects
-            .reverse()
-            .map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))
-        )}
+      <div className={styles.body}>
+        <div className={isEmpty ? styles.emptyContent : styles.content}>
+          {isEmpty ? (
+            <Empty />
+          ) : (
+            projects
+              .reverse()
+              .map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -67,12 +67,12 @@
     gap: 0px;
   }
 
-  .textContainer {
-    padding: 14px 24px;
-  }
-
   .contentContainer {
     padding: 0 24px;
+  }
+
+  .contentContainer > * {
+    padding: 0 16px;
   }
 }
 

@@ -12,7 +12,7 @@ const page = async () => {
   const content = await fetchContentData();
 
   return (
-    <div className={styles.aboutContainer}>
+    <>
       <PageTitle>About Me</PageTitle>
       <div className={styles.content}>
         <div className={styles.image}>
@@ -35,7 +35,7 @@ const page = async () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

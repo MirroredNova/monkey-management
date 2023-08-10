@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchData } from '@/services/firebase.service';
 import Banner from '@/components/banner/banner';
 import BlogContent from '@/components/blogs/content';
+import styles from './page.module.css';
 
 export const metadata = {
   title: 'Blogs'
@@ -22,11 +23,13 @@ const page = async ({ params }: Props) => {
       {blogs[blogIndex] && (
         <>
           <Banner object={blogs[blogIndex]} />
-          <BlogContent
-            blog={blogs[blogIndex]}
-            nextBlogId={blogs[blogIndex - 1]?.id}
-            prevBlogId={blogs[blogIndex + 1]?.id}
-          />
+          <div className={styles.body}>
+            <BlogContent
+              blog={blogs[blogIndex]}
+              nextBlogId={blogs[blogIndex - 1]?.id}
+              prevBlogId={blogs[blogIndex + 1]?.id}
+            />
+          </div>
         </>
       )}
     </>

@@ -1,12 +1,8 @@
-.projectContainer {
-  display: flex;
-  flex-direction: column;
-}
-
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 600px);
-  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 404px;
+  grid-gap: 40px;
   justify-content: center;
 }
 
@@ -14,4 +10,11 @@
   border: 1px solid lightgrey;
   width: 940px;
   align-self: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .content {
+    max-width: 600px;
+    grid-template-columns: 1fr;
+  }
 }
