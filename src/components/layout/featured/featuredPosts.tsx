@@ -16,13 +16,13 @@ const FeaturedPosts = ({ blogData }: Props) => {
       <div className={styles.title}>
         <h2>Featured Post</h2>
       </div>
-      <div>
+      <>
         {blogData.length === 0 ? (
           <Empty />
         ) : (
           featuredBlog && <FeaturedBlog blog={featuredBlog} />
         )}
-      </div>
+      </>
     </div>
   );
 };

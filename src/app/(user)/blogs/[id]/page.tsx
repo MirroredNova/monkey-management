@@ -18,7 +18,7 @@ const page = async ({ params }: Props) => {
   const blogIndex = blogs.findIndex((blog) => blog.id === params.id);
 
   return (
-    <div>
+    <>
       {blogs[blogIndex] && (
         <>
           <Banner object={blogs[blogIndex]} />
@@ -29,7 +29,7 @@ const page = async ({ params }: Props) => {
           />
         </>
       )}
-    </div>
+    </>
   );
 };
 
