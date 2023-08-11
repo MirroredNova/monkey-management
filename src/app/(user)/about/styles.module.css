@@ -21,6 +21,7 @@
   background-color: var(--primary);
   color: var(--light);
   height: 100%;
+  min-width: 300px;
 }
 
 .text {

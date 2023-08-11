@@ -65,7 +65,7 @@
 
 @media screen and (max-width: 600px) {
   .content {
-    margin: 18px;
+    margin: 36px 18px 18px 18px;
   }
 }
 
