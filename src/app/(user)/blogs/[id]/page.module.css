@@ -1,0 +1,9 @@
+.body {
+  margin-top: min(20cqi, 400px);
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 36px;
+}

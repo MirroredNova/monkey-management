@@ -1,16 +1,7 @@
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .body {
-  box-sizing: border-box;
   background-color: var(--dark);
   color: var(--light);
-  width: 940px;
-  margin: -122px 48px 64px 48px;
-  padding: 24px 48px;
+  padding: 24px 48px 48px 48px;
   display: grid;
   grid-template-rows: auto 1fr;
   grid-gap: 24px;
@@ -20,6 +11,7 @@
 .body a {
   text-decoration: none;
   color: var(--light);
+  border: 1px solid grey;
 }
 
 .title h2 {
@@ -29,11 +21,6 @@
 }
 
 @media screen and (max-width: 400px) {
-  .body {
-    width: 100%;
-    margin: -122px 12px 64px 12px;
-  }
-
   .title {
     text-align: center;
   }
@@ -41,6 +28,6 @@
 
 @media screen and (max-width: 600px) {
   .body {
-    padding: 24px 24px 12px 24px;
+    padding: 24px 24px 24px 24px;
   }
 }

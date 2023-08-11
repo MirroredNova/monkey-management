@@ -1,17 +1,19 @@
-.projectContainer {
-  display: flex;
-  flex-direction: column;
-}
-
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 600px);
-  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
   justify-content: center;
 }
 
 .emptyContent {
   border: 1px solid lightgrey;
-  width: 940px;
   align-self: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    max-width: 600px;
+    grid-template-columns: 1fr;
+  }
 }

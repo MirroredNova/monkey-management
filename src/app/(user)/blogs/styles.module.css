@@ -1,28 +1,14 @@
-.blogContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.blogContainer > div {
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
 .content {
-  max-width: 940px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  margin: 0 20px 20px 20px;
 }
 
 .emptyContent {
   border: 1px solid lightgrey;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
   .content {
     max-width: 400px;
     grid-template-columns: 1fr;

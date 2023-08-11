@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import ProjectBanner from '@/components/banner/banner';
 import ProjectContent from '@/components/projects/content/content';
 import { fetchData } from '@/services/firebase.service';
+import styles from './page.module.css';
 
 type Props = {
   params: {
@@ -21,18 +22,20 @@ const Project = async ({ params }: Props) => {
   const projIndex = projects.findIndex((proj) => proj.id === params.id);
 
   return (
-    <div>
+    <>
       {projects[projIndex] && (
         <>
           <ProjectBanner object={projects[projIndex]} />
-          <ProjectContent
-            project={projects[projIndex]}
-            nextProjId={projects[projIndex - 1]?.id}
-            prevProjId={projects[projIndex + 1]?.id}
-          />
+          <div className={styles.body}>
+            <ProjectContent
+              project={projects[projIndex]}
+              nextProjId={projects[projIndex - 1]?.id}
+              prevProjId={projects[projIndex + 1]?.id}
+            />
+          </div>
         </>
       )}
-    </div>
+    </>
   );
 };
 

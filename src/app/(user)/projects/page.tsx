@@ -14,7 +14,7 @@ const page = async () => {
   const isEmpty = projects.length === 0;
 
   return (
-    <div className={styles.projectContainer}>
+    <>
       <PageTitle>Projects</PageTitle>
       <div className={isEmpty ? styles.emptyContent : styles.content}>
         {isEmpty ? (
@@ -27,7 +27,7 @@ const page = async () => {
             ))
         )}
       </div>
-    </div>
+    </>
   );
 };
 

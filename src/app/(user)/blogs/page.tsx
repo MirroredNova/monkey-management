@@ -14,7 +14,7 @@ const page = async () => {
   const isEmpty = blogData.length === 0;
 
   return (
-    <div className={styles.blogContainer}>
+    <>
       <PageTitle>Blogs</PageTitle>
       <div className={isEmpty ? styles.emptyContent : styles.content}>
         {isEmpty ? (
@@ -25,7 +25,7 @@ const page = async () => {
             .map((blog) => <BlogItem key={blog.id} blog={blog} />)
         )}
       </div>
-    </div>
+    </>
   );
 };
 

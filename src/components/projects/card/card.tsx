@@ -15,7 +15,7 @@ const ProjectCard = ({ project }: Props) => (
         src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_PROJECT_COVER_IMAGE_TRANSFORMATION}/${project?.coverImage}`}
         alt="cover image"
         width={509}
-        height={403}
+        height={404}
         unoptimized
       />
     </div>

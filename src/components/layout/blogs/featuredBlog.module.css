@@ -4,18 +4,6 @@
   gap: 24px;
 }
 
-@media screen and (max-width: 900px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-  }
-
-  .textContainer {
-    padding-top: 14px;
-  }
-}
-
 .container > div {
   width: 100%;
 }
@@ -30,6 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .textContainer > div {
@@ -43,7 +32,10 @@
   gap: 18px;
   font-size: 18px;
   line-height: 24px;
-  border-top: 1px solid grey;
+}
+
+.contentContainer > * {
+  padding: 0 24px 0 0;
 }
 
 .contentContainer h1 {
@@ -53,6 +45,10 @@
   line-height: 36px;
 }
 
+.contentContainer p {
+  word-break: break-word;
+}
+
 @media screen and (max-width: 400px) {
   .contentContainer h1 {
     font-size: 24px;
@@ -60,7 +56,27 @@
   }
 }
 
-.contentContainer p {
-  width: 100%;
-  word-break: break-word;
+@media screen and (min-width: 900px) {
+  .contentContainer:before {
+    content: "";
+    width: 50%;  /* or 100px */
+    border-top: 1px solid grey;
+  }
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .contentContainer {
+    padding: 0 24px;
+  }
+
+  .contentContainer > * {
+    padding: 0 16px;
+  }
+}
+
