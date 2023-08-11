@@ -33,7 +33,6 @@
 
 .links li:not(:last-child) {
   margin-bottom: 10px;
-  font-size: 14px;
 }
 
 .links ul li a {

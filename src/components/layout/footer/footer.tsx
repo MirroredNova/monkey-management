@@ -21,10 +21,10 @@ const Footer = async () => {
               <Link href="/blogs">Blogs</Link>
             </li>
             <li>
-              <Link href="/about">About Me</Link>
+              <Link href="/projects">Projects</Link>
             </li>
             <li>
-              <Link href="/projects">Projects</Link>
+              <Link href="/about">About</Link>
             </li>
           </ul>
         </div>
