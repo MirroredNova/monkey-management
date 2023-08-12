@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 'use client';
 
 import Image from 'next/image';
@@ -35,22 +37,21 @@ type Props = {
 };
 
 const ContentImages = ({ imageUrls }: Props) => (
-  <div className={styles.carouselContainer}>
+  <div className={styles.container}>
     <div>
       <h2>Image Gallery</h2>
     </div>
-    <Carousel responsive={responsive} arrows infinite swipeable>
-      {imageUrls.map((url, index) => (
-        <Image
-          key={`image-carousel-${index}`}
-          unoptimized
-          src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_BLOGS_CONTENT_IMAGE_TRANSFORMATION}/${url}`}
-          alt={''}
-          width={1080}
-          height={1080}
-        />
-      ))}
-    </Carousel>
+    <div className={styles.carouselContainer}>
+      <Carousel responsive={responsive} infinite arrows swipeable>
+        {imageUrls.map((url, index) => (
+          <img
+            key={`image-carousel-${index}`}
+            src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_BLOGS_CONTENT_IMAGE_TRANSFORMATION}/${url}`}
+            alt={''}
+          />
+        ))}
+      </Carousel>
+    </div>
   </div>
 );
 
