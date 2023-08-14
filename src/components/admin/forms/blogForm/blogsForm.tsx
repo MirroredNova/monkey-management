@@ -1,7 +1,11 @@
 import CloudinaryService from '@/services/cloudinary.service';
 import { postFormData } from '@/services/firebase.service';
 import { Post, Content } from '@/types/blogs';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
+import {
+  BlogForm as BlogFormFields,
+  ProjectForm as ProjectFormFields
+} from '@/constants/forms';
 import styles from './blogsForm.module.css';
 
 const radioOptions = ['text', 'img'];
@@ -26,6 +30,11 @@ const BlogForm = () => {
   );
   const [selectedContent, setSelectedContent] = useState<string>(
     radioOptions[0]
+  );
+
+  const notDisabledFields = useMemo(
+    () => (selectedFormType === 'blogs' ? BlogFormFields : ProjectFormFields),
+    [selectedFormType]
   );
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -184,6 +193,7 @@ const BlogForm = () => {
             onChange={onChange}
             name="title"
             required
+            disabled={!notDisabledFields.title}
           />
           <label>Read Time</label>
           <input
@@ -193,6 +203,7 @@ const BlogForm = () => {
             onChange={onChange}
             name="readTime"
             required
+            disabled={!notDisabledFields.readTime}
           />
           <label>Subtext</label>
           <input
@@ -201,6 +212,7 @@ const BlogForm = () => {
             onChange={onChange}
             name="subtext"
             required
+            disabled={!notDisabledFields.subtext}
           />
           <label>Cover Image</label>
           <input
@@ -210,6 +222,7 @@ const BlogForm = () => {
             type="file"
             data-image="coverImage"
             ref={fileInputRef}
+            disabled={!notDisabledFields.coverImage}
           />
         </div>
         <div className={styles.contentContainer}>
@@ -221,6 +234,7 @@ const BlogForm = () => {
             data-image="contentImage"
             onChange={onImageChange}
             name="contentImage"
+            disabled={!notDisabledFields.contentImages}
           />
           <label>Content</label>
           <div>
@@ -233,6 +247,7 @@ const BlogForm = () => {
                   value={x}
                   checked={selectedContent === x}
                   onChange={(e) => setSelectedContent(e.target.value)}
+                  disabled={!notDisabledFields.content}
                 />
                 <label htmlFor={x}>{x}</label>
               </span>
@@ -241,6 +256,7 @@ const BlogForm = () => {
               type="button"
               data-value="increment"
               onClick={changeContentCount}
+              disabled={!notDisabledFields.content}
             >
               Add
             </button>
@@ -303,6 +319,7 @@ const BlogForm = () => {
             <button
               type="button"
               onClick={() => setReferences((prev) => [...prev, ''])}
+              disabled={!notDisabledFields.references}
             >
               Add Reference
             </button>
@@ -328,6 +345,7 @@ const BlogForm = () => {
                 data-index={i}
                 value={references[i]}
                 onChange={onChangeReference}
+                disabled={!notDisabledFields.references}
               />
             </div>
           ))}
