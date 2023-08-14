@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Post } from '@/types/blogs';
-import styles from './card.module.css';
+import styles from './projectCard.module.css';
 
 type Props = {
   project: Post;

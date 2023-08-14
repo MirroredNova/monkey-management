@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 import { Post } from '@/types/blogs';
-import styles from './banner.module.css';
+import styles from './postBanner.module.css';
 
 type Props = {
   object: Post;
 };
 
-const Banner = ({ object }: Props) => (
+const PostBanner = ({ object }: Props) => (
   <div className={styles.bannerContainer}>
     <Image
       alt={`${object.title}ImageBanner`}
@@ -19,4 +19,4 @@ const Banner = ({ object }: Props) => (
   </div>
 );
 
-export default Banner;
+export default PostBanner;

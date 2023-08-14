@@ -1,14 +1,14 @@
 import React from 'react';
 import { Post } from '@/types/blogs';
-import FeaturedBlog from '../blogs/featuredBlog';
-import Empty from '../empty/empty';
-import styles from './featuredPosts.module.css';
+import FeaturedBlogCard from '@/components/blogs/featuredBlogCard/featuredBlogCard';
+import Empty from '../../shared/empty/empty';
+import styles from './featuredBlog.module.css';
 
 type Props = {
   blogData: Post[];
 };
 
-const FeaturedPosts = ({ blogData }: Props) => {
+const FeaturedBlog = ({ blogData }: Props) => {
   const featuredBlog = blogData.at(-1);
 
   return (
@@ -20,11 +20,11 @@ const FeaturedPosts = ({ blogData }: Props) => {
         {blogData.length === 0 ? (
           <Empty />
         ) : (
-          featuredBlog && <FeaturedBlog blog={featuredBlog} />
+          featuredBlog && <FeaturedBlogCard blog={featuredBlog} />
         )}
       </>
     </div>
   );
 };
 
-export default FeaturedPosts;
+export default FeaturedBlog;

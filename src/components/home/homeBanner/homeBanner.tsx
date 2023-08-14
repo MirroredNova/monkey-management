@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { fetchContentData } from '@/services/firebase.service';
-import styles from './banner.module.css';
 import Socials from '../socials/socials';
+import styles from './homeBanner.module.css';
 
-const Banner = async () => {
+const HomeBanner = async () => {
   const content = await fetchContentData();
 
   return (
@@ -35,4 +35,4 @@ const Banner = async () => {
   );
 };
 
-export default Banner;
+export default HomeBanner;

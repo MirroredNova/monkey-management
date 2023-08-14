@@ -1,8 +1,8 @@
-import PageTitle from '@/components/layout/pageTitle/pageTitle';
-import ProjectCard from '@/components/projects/card/card';
 import React from 'react';
 import { fetchData } from '@/services/firebase.service';
-import Empty from '@/components/layout/empty/empty';
+import Empty from '@/components/shared/empty/empty';
+import PageTitle from '@/components/shared/pageTitle/pageTitle';
+import ProjectCard from '@/components/projects/projectCard/projectCard';
 import styles from './styles.module.css';
 
 export const metadata = {

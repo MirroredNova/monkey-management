@@ -2,7 +2,7 @@ import React from 'react';
 import { Post } from '@/types/blogs';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './content.module.css';
+import styles from './projectContent.module.css';
 
 type Props = {
   project: Post;

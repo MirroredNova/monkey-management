@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { fetchContentData } from '@/services/firebase.service';
-import SiteTitle from '../siteTitle/siteTitle';
+import SiteTitle from '../../shared/siteTitle/siteTitle';
 import styles from './footer.module.css';
 
 const Footer = async () => {

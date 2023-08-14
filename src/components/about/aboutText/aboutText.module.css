@@ -1,0 +1,25 @@
+.container {
+  background-color: var(--primary);
+  color: var(--light);
+  height: 100%;
+  min-width: 300px;
+}
+
+.text {
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 30px;
+}
+
+.text > h3 {
+  font-size: 36px;
+  font-family: initial;
+  font-weight: 600;
+}
+
+.text > p {
+  line-height: 1.5em;
+  font-size: 15px;
+}

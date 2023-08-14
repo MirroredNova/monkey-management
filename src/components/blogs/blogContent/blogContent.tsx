@@ -3,10 +3,10 @@ import { Post } from '@/types/blogs';
 import BlogService from '@/services/blog.service';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './content.module.css';
-import Author from '../layout/blogs/author';
-import References from './references';
-import ContentImages from './contentImages';
+import ContentImages from '@/components/shared/contentImages/contentImages';
+import References from '@/components/shared/references/references';
+import Author from '@/components/shared/author/author';
+import styles from './blogContent.module.css';
 
 type Props = {
   blog: Post;

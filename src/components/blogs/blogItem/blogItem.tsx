@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import BlogService from '@/services/blog.service';
 import Link from 'next/link';
-import Author from './author';
+import Author from '@/components/shared/author/author';
 import styles from './blogItem.module.css';
 
 type Props = {

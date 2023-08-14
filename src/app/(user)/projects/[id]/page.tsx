@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import ProjectBanner from '@/components/banner/banner';
-import ProjectContent from '@/components/projects/content/content';
+import ProjectBanner from '@/components/shared/postBanner/postBanner';
+import ProjectContent from '@/components/projects/projectContent/projectContent';
 import { fetchData } from '@/services/firebase.service';
 import styles from './page.module.css';
 

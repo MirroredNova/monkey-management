@@ -1,9 +1,9 @@
-import FeaturedPosts from '@/components/layout/featured/featuredPosts';
-import RecentPosts from '@/components/layout/recent/recentPosts';
 import React from 'react';
 import { fetchData } from '@/services/firebase.service';
-import Banner from '@/components/home/banner/banner';
+import Banner from '@/components/home/homeBanner/homeBanner';
+import RecentPosts from '@/components/home/recentBlog/recentBlog';
 import Socials from '@/components/home/socials/socials';
+import FeaturedBlogs from '@/components/home/featuredBlog/featuredBlog';
 import styles from './page.module.css';
 
 const page = async () => {
@@ -16,7 +16,7 @@ const page = async () => {
         <Socials />
       </div>
       <div className={styles.body}>
-        <FeaturedPosts blogData={blogData} />
+        <FeaturedBlogs blogData={blogData} />
         <RecentPosts blogData={blogData} />
       </div>
     </>

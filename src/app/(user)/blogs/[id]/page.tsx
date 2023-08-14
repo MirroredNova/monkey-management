@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchData } from '@/services/firebase.service';
-import Banner from '@/components/banner/banner';
-import BlogContent from '@/components/blogs/content';
+import Banner from '@/components/shared/postBanner/postBanner';
+import BlogContent from '@/components/blogs/blogContent/blogContent';
 import styles from './page.module.css';
 
 export const metadata = {

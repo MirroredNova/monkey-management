@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { useCallback } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import SiteTitle from '../siteTitle/siteTitle';
+import SiteTitle from '../../shared/siteTitle/siteTitle';
 import styles from './nav.module.css';
 import OutsideClickListener from './outsideClickHandler';
 

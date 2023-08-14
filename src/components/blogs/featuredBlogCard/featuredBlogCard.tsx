@@ -1,18 +1,18 @@
+import React from 'react';
 import { Post } from '@/types/blogs';
 import Image from 'next/image';
-import React from 'react';
 import Link from 'next/link';
-import styles from './recentBlog.module.css';
-import Times from '../times/times';
+import Times from '@/components/shared/times/times';
+import styles from './featuredBlogCard.module.css';
 
 type Props = {
   blog: Post;
 };
 
-const RecentBlog = ({ blog }: Props) => (
+const FeaturedBlogCard = ({ blog }: Props) => (
   <Link href={`/blogs/${blog?.id}`}>
     <div className={styles.container}>
-      <div className={styles.imageContainer}>
+      <div>
         <Image
           src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/${process.env.NEXT_PUBLIC_CLOUDINARY_FEATURED_IMAGE_TRANSFORMATION}/${blog?.coverImage}`}
           alt="blog"
@@ -23,10 +23,13 @@ const RecentBlog = ({ blog }: Props) => (
       </div>
       <div className={styles.textContainer}>
         <Times blog={blog} />
-        <h2>{blog?.title}</h2>
+        <div className={styles.contentContainer}>
+          <h1>{blog?.title}</h1>
+          <p>{blog?.subtext}</p>
+        </div>
       </div>
     </div>
   </Link>
 );
 
-export default RecentBlog;
+export default FeaturedBlogCard;
