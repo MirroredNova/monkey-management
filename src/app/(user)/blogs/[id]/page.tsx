@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchData } from '@/services/firebase.service';
 import Banner from '@/components/shared/postBanner/postBanner';
 import BlogContent from '@/components/blogs/blogContent/blogContent';
+import { PostTypes } from '@/types/blogs';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -15,7 +16,7 @@ type Props = {
 };
 
 const page = async ({ params }: Props) => {
-  const blogs = await fetchData('blogs');
+  const blogs = await fetchData(PostTypes.Blogs);
   const blogIndex = blogs.findIndex((blog) => blog.id === params.id);
 
   return (

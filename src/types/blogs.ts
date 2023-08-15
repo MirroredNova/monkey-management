@@ -1,3 +1,8 @@
+export enum PostTypes {
+  Blogs = 'blogs',
+  Projects = 'projects'
+}
+
 export type Content = {
   type: string;
   data: string;

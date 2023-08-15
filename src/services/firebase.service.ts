@@ -1,10 +1,10 @@
-import { Post } from '@/types/blogs';
+import { Post, PostTypes } from '@/types/blogs';
 
 //* ******************************//
 //  DATA FUNCTIONS ************* //
 //* ****************************//
 
-export const fetchData = async (type: string) => {
+export const fetchData = async (type: PostTypes) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_FIREBASE_URL}${type}.json`,
     {

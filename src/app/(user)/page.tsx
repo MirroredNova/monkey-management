@@ -4,10 +4,11 @@ import Banner from '@/components/home/homeBanner/homeBanner';
 import RecentPosts from '@/components/home/recentBlog/recentBlog';
 import Socials from '@/components/home/socials/socials';
 import FeaturedBlogs from '@/components/home/featuredBlog/featuredBlog';
+import { PostTypes } from '@/types/blogs';
 import styles from './page.module.css';
 
 const page = async () => {
-  const blogData = await fetchData('blogs');
+  const blogData = await fetchData(PostTypes.Blogs);
 
   return (
     <>

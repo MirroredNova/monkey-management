@@ -1,6 +1,6 @@
 import CloudinaryService from '@/services/cloudinary.service';
 import { postFormData } from '@/services/firebase.service';
-import { Post, Content } from '@/types/blogs';
+import { Post, Content, PostTypes } from '@/types/blogs';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import {
   BlogForm as BlogFormFields,
@@ -9,7 +9,9 @@ import {
 import styles from './postForm.module.css';
 
 const radioOptions = ['text', 'img'];
-const creationTypeRadioOptions = ['blogs', 'projects'];
+const creationTypeRadioOptions = Object.values(PostTypes).filter((v) =>
+  Number.isNaN(Number(v))
+);
 
 const PostForm = () => {
   const [formData, setFormData] = useState<Post>({
@@ -33,7 +35,8 @@ const PostForm = () => {
   );
 
   const notDisabledFields = useMemo(
-    () => (selectedFormType === 'blogs' ? BlogFormFields : ProjectFormFields),
+    () =>
+      selectedFormType === PostTypes.Blogs ? BlogFormFields : ProjectFormFields,
     [selectedFormType]
   );
 
