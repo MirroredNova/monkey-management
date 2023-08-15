@@ -6,12 +6,12 @@ import {
   BlogForm as BlogFormFields,
   ProjectForm as ProjectFormFields
 } from '@/constants/forms';
-import styles from './blogsForm.module.css';
+import styles from './postForm.module.css';
 
 const radioOptions = ['text', 'img'];
 const creationTypeRadioOptions = ['blogs', 'projects'];
 
-const BlogForm = () => {
+const PostForm = () => {
   const [formData, setFormData] = useState<Post>({
     title: '',
     readTime: 0,
@@ -356,4 +356,4 @@ const BlogForm = () => {
   );
 };
 
-export default BlogForm;
+export default PostForm;

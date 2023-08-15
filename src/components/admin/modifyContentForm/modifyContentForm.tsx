@@ -16,7 +16,7 @@ const handleTextareaInput = (event: React.FormEvent<HTMLTextAreaElement>) => {
   textarea.style.height = `${textarea.scrollHeight}px`;
 };
 
-const Form: React.FC<FormProps> = ({ data }) => {
+const ModifyContentForm: React.FC<FormProps> = ({ data }) => {
   const [modifiedData, setModifiedData] = useState(data);
 
   const updateProperty = (path: string[], value: any, obj: any) => {
@@ -86,4 +86,4 @@ const Form: React.FC<FormProps> = ({ data }) => {
   );
 };
 
-export default Form;
+export default ModifyContentForm;

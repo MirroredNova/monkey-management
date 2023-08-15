@@ -6,7 +6,7 @@ type Props = {
   content: any;
 };
 
-const aboutText = ({ content }: Props) => (
+const AboutText = ({ content }: Props) => (
   <div className={styles.container}>
     <div className={styles.text}>
       <h3>{content.about.heading}</h3>
@@ -14,8 +14,7 @@ const aboutText = ({ content }: Props) => (
         <p key={index}>{paragraph}</p>
       ))}
     </div>
-    IA
   </div>
 );
 
-export default aboutText;
+export default AboutText;
