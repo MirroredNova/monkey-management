@@ -1,7 +1,7 @@
 'use client';
 
 import Dashboard from '@/components/admin/dashboard/dashboard';
-import LoginForm from '@/components/admin/forms/loginForm/loginForm';
+import LoginForm from '@/components/admin/loginForm/loginForm';
 import React, { useCallback, useState } from 'react';
 import styles from './styles.module.css';
 

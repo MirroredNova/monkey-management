@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import ProjectBanner from '@/components/banner/banner';
-import ProjectContent from '@/components/projects/content/content';
+import ProjectBanner from '@/components/shared/postBanner/postBanner';
+import ProjectContent from '@/components/projects/projectContent/projectContent';
 import { fetchData } from '@/services/firebase.service';
+import { PostTypes } from '@/types/blogs';
 import styles from './page.module.css';
 
 type Props = {
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Project = async ({ params }: Props) => {
-  const projects = await fetchData('projects');
+  const projects = await fetchData(PostTypes.Projects);
   const projIndex = projects.findIndex((proj) => proj.id === params.id);
 
   return (

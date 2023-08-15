@@ -1,8 +1,9 @@
-import BlogItem from '@/components/layout/blogs/blogItem';
-import Empty from '@/components/layout/empty/empty';
-import PageTitle from '@/components/layout/pageTitle/pageTitle';
+import Empty from '@/components/shared/empty/empty';
+import PageTitle from '@/components/shared/pageTitle/pageTitle';
 import React from 'react';
 import { fetchData } from '@/services/firebase.service';
+import BlogItem from '@/components/blogs/blogItem/blogItem';
+import { PostTypes } from '@/types/blogs';
 import styles from './styles.module.css';
 
 export const metadata = {
@@ -10,7 +11,7 @@ export const metadata = {
 };
 
 const page = async () => {
-  const blogData = await fetchData('blogs');
+  const blogData = await fetchData(PostTypes.Blogs);
   const isEmpty = blogData.length === 0;
 
   return (
