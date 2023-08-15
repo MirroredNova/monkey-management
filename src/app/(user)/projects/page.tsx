@@ -3,6 +3,7 @@ import { fetchData } from '@/services/firebase.service';
 import Empty from '@/components/shared/empty/empty';
 import PageTitle from '@/components/shared/pageTitle/pageTitle';
 import ProjectCard from '@/components/projects/projectCard/projectCard';
+import { PostTypes } from '@/types/blogs';
 import styles from './styles.module.css';
 
 export const metadata = {
@@ -10,7 +11,7 @@ export const metadata = {
 };
 
 const page = async () => {
-  const projects = await fetchData('projects');
+  const projects = await fetchData(PostTypes.Projects);
   const isEmpty = projects.length === 0;
 
   return (
