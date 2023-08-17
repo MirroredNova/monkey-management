@@ -39,3 +39,10 @@
   text-decoration: none;
   color: var(--secondary);
 }
+
+@media screen and (max-width: 600px) {
+  .tag {
+    text-align: center;
+    line-height: 20px;
+  }
+}
