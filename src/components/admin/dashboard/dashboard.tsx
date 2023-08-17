@@ -24,10 +24,10 @@ const Dashboard = () => {
   const [contentData, setContentData] = React.useState<any>(null);
 
   useEffect(() => {
-    fetchData(PostTypes.Blogs).then((projectsData) => {
+    fetchData(PostTypes.Projects).then((projectsData) => {
       setProjects(projectsData);
     });
-    fetchData(PostTypes.Projects).then((blogsData) => {
+    fetchData(PostTypes.Blogs).then((blogsData) => {
       setBlogs(blogsData);
     });
     fetchContentData().then((data) => setContentData(data));
