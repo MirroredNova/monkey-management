@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post, PostTypes } from '@/types/blogs';
+import { Post, PostTypes } from '@/types/posts';
 import styles from './postList.module.css';
 
 type Props = {

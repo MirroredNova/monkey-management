@@ -1,6 +1,6 @@
 import BlogService from '@/services/blog.service';
 import React from 'react';
-import { Post } from '@/types/blogs';
+import { Post } from '@/types/posts';
 import styles from './times.module.css';
 
 type Props = {

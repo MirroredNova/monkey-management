@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '@/types/blogs';
+import { Post } from '@/types/posts';
 import RecentBlogCard from '@/components/blogs/recentBlogCard/recentBlogCard';
 import Empty from '../../shared/empty/empty';
 import styles from './recentBlog.module.css';

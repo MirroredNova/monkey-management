@@ -3,7 +3,7 @@ export enum PostTypes {
   Projects = 'projects'
 }
 
-export type Content = {
+export type PostContent = {
   type: string;
   data: string;
 };
@@ -15,7 +15,7 @@ export type Post = {
   creationDate?: number;
   subtext?: string;
   coverImage: string;
-  content?: Content[];
+  content?: PostContent[];
   contentImages?: string[];
   references?: string[];
 };

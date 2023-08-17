@@ -4,7 +4,7 @@ import Banner from '@/components/home/homeBanner/homeBanner';
 import RecentPosts from '@/components/home/recentBlog/recentBlog';
 import Socials from '@/components/home/socials/socials';
 import FeaturedBlogs from '@/components/home/featuredBlog/featuredBlog';
-import { PostTypes } from '@/types/blogs';
+import { PostTypes } from '@/types/posts';
 import styles from './page.module.css';
 
 const page = async () => {

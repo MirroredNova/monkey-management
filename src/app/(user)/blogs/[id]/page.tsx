@@ -2,7 +2,7 @@ import React from 'react';
 import { fetchData } from '@/services/firebase.service';
 import Banner from '@/components/shared/postBanner/postBanner';
 import BlogContent from '@/components/blogs/blogContent/blogContent';
-import { PostTypes } from '@/types/blogs';
+import { PostTypes } from '@/types/posts';
 import styles from './page.module.css';
 
 export const metadata = {
