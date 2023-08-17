@@ -3,7 +3,7 @@ import PageTitle from '@/components/shared/pageTitle/pageTitle';
 import React from 'react';
 import { fetchData } from '@/services/firebase.service';
 import BlogItem from '@/components/blogs/blogItem/blogItem';
-import { PostTypes } from '@/types/blogs';
+import { PostTypes } from '@/types/posts';
 import styles from './styles.module.css';
 
 export const metadata = {

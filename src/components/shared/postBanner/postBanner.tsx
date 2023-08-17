@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Post } from '@/types/blogs';
+import { Post } from '@/types/posts';
 import styles from './postBanner.module.css';
 
 type Props = {

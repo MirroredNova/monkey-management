@@ -6,7 +6,7 @@ import {
   deleteData,
   fetchContentData
 } from '@/services/firebase.service';
-import { Post, PostTypes } from '@/types/blogs';
+import { Post, PostTypes } from '@/types/posts';
 import styles from './dashboard.module.css';
 import PostForm from '../postForm/postForm';
 import PostList from '../postList/postList';

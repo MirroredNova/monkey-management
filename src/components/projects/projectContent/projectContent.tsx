@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '@/types/blogs';
+import { Post } from '@/types/posts';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './projectContent.module.css';

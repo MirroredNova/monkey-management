@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import ProjectBanner from '@/components/shared/postBanner/postBanner';
 import ProjectContent from '@/components/projects/projectContent/projectContent';
 import { fetchData } from '@/services/firebase.service';
-import { PostTypes } from '@/types/blogs';
+import { PostTypes } from '@/types/posts';
 import styles from './page.module.css';
 
 type Props = {

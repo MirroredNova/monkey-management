@@ -1,4 +1,4 @@
-import { Post, PostTypes } from '@/types/blogs';
+import { Post, PostTypes } from '@/types/posts';
 
 //* ******************************//
 //  DATA FUNCTIONS ************* //

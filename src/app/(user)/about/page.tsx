@@ -16,7 +16,7 @@ const page = async () => {
     <>
       <PageTitle>About Me</PageTitle>
       <div className={styles.content}>
-        <AboutImage />
+        <AboutImage content={content} />
         <AboutText content={content} />
       </div>
     </>

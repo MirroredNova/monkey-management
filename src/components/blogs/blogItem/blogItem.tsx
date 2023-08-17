@@ -1,4 +1,4 @@
-import { Post } from '@/types/blogs';
+import { Post } from '@/types/posts';
 import Image from 'next/image';
 import React from 'react';
 import BlogService from '@/services/blog.service';

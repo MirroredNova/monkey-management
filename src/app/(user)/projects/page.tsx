@@ -3,7 +3,7 @@ import { fetchData } from '@/services/firebase.service';
 import Empty from '@/components/shared/empty/empty';
 import PageTitle from '@/components/shared/pageTitle/pageTitle';
 import ProjectCard from '@/components/projects/projectCard/projectCard';
-import { PostTypes } from '@/types/blogs';
+import { PostTypes } from '@/types/posts';
 import styles from './styles.module.css';
 
 export const metadata = {

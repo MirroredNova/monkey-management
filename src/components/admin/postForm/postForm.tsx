@@ -1,6 +1,6 @@
 import CloudinaryService from '@/services/cloudinary.service';
 import { postFormData } from '@/services/firebase.service';
-import { Post, Content, PostTypes } from '@/types/blogs';
+import { Post, PostContent, PostTypes } from '@/types/posts';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import {
   BlogForm as BlogFormFields,
@@ -103,7 +103,8 @@ const PostForm = () => {
     // HANDLE CONTENT
     if (content.length > 0) {
       const contentData = content.map(async (x) => {
-        if (typeof x === 'string') return { type: 'text', data: x } as Content;
+        if (typeof x === 'string')
+          return { type: 'text', data: x } as PostContent;
         return { type: 'img', data: await CloudinaryService.uploadImage(x) };
       });
       const contentDataUrl = await Promise.all(contentData);
