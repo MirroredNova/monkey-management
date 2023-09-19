@@ -17,6 +17,7 @@
     "@types/node": "^18.11.18",
     "@vercel/analytics": "^1.0.1",
     "cloudinary": "^1.37.0",
+    "html-react-parser": "^4.2.2",
     "next": "^13.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

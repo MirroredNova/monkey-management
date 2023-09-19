@@ -6,6 +6,7 @@ import Link from 'next/link';
 import ContentImages from '@/components/shared/contentImages/contentImages';
 import References from '@/components/shared/references/references';
 import Author from '@/components/shared/author/author';
+import parse from 'html-react-parser';
 import styles from './blogContent.module.css';
 
 type Props = {
@@ -32,7 +33,7 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
       {blog.content &&
         blog.content.map((content, index) => {
           if (content.type === 'text') {
-            return <p key={index}>{content.data as string}</p>;
+            return <p key={index}>{parse(content.data)}</p>;
           }
           if (/^h[1-6]$/.test(content.type)) {
             return React.createElement(
