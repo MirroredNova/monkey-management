@@ -28,11 +28,18 @@ const BlogContent = ({ blog, nextBlogId, prevBlogId }: Props) => {
           readTime={blog.readTime}
         />
       )}
-      <h3>{blog.subtext}</h3>
+      <h2>{blog.subtext}</h2>
       {blog.content &&
         blog.content.map((content, index) => {
           if (content.type === 'text') {
             return <p key={index}>{content.data as string}</p>;
+          }
+          if (/^h[1-6]$/.test(content.type)) {
+            return React.createElement(
+              content.type,
+              { key: index },
+              content.data
+            );
           }
           return (
             <Image

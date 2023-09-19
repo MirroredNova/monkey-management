@@ -8,7 +8,7 @@ import {
 } from '@/constants/forms';
 import styles from './postForm.module.css';
 
-const radioOptions = ['text', 'img'];
+const radioOptions = ['text', 'img', 'header'];
 const creationTypeRadioOptions = Object.values(PostTypes).filter((v) =>
   Number.isNaN(Number(v))
 );
@@ -33,6 +33,7 @@ const PostForm = () => {
   const [selectedContent, setSelectedContent] = useState<string>(
     radioOptions[0]
   );
+  const [newHeaderSize, setNewHeaderSize] = useState<number>(3);
 
   const notDisabledFields = useMemo(
     () =>
@@ -54,7 +55,9 @@ const PostForm = () => {
     });
   };
 
-  const onTextContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onTextContentChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     const index = e.currentTarget.getAttribute('data-index');
     if (!index) return;
     setContent((prev) => {
@@ -102,10 +105,10 @@ const PostForm = () => {
 
     // HANDLE CONTENT
     if (content.length > 0) {
-      const contentData = content.map(async (x) => {
-        if (typeof x === 'string')
-          return { type: 'text', data: x } as PostContent;
-        return { type: 'img', data: await CloudinaryService.uploadImage(x) };
+      const contentData = content.map(async (x, i) => {
+        const type = contentList[i];
+        if (typeof x === 'string') return { type, data: x } as PostContent;
+        return { type, data: await CloudinaryService.uploadImage(x) };
       });
       const contentDataUrl = await Promise.all(contentData);
       formData.content = contentDataUrl;
@@ -159,6 +162,9 @@ const PostForm = () => {
         } else if (selectedContent === 'img') {
           setContentList((prev) => [...prev, 'img']);
           setContent((prev) => [...prev, '']);
+        } else if (selectedContent === 'header') {
+          setContentList((prev) => [...prev, `h${newHeaderSize}`]);
+          setContent((prev) => [...prev, '']);
         }
       }
       if (val === 'remove' && index) {
@@ -166,7 +172,7 @@ const PostForm = () => {
         setContent((prev) => prev.filter((_, i) => i !== +index));
       }
     },
-    [selectedContent]
+    [newHeaderSize, selectedContent]
   );
 
   return (
@@ -265,6 +271,20 @@ const PostForm = () => {
               Add
             </button>
           </div>
+          {selectedContent === 'header' && (
+            <div>
+              <label htmlFor="headerSize">Header Size (1-6)</label>
+              <input
+                id="headerSize"
+                type="number"
+                min={1}
+                max={6}
+                value={newHeaderSize}
+                onChange={(e) => setNewHeaderSize(+e.target.value)}
+                onKeyDown={(e) => e.preventDefault()}
+              />
+            </div>
+          )}
           <div>
             {contentList.map((x, i) => (
               <div key={i} className={styles.blogContentContainer}>
@@ -293,7 +313,7 @@ const PostForm = () => {
                 {x === 'img' && (
                   <>
                     <div>
-                      <label>Paragraph {i + 1}</label>
+                      <label>Image {i + 1}</label>
                       <button
                         type="button"
                         data-value="remove"
@@ -310,6 +330,28 @@ const PostForm = () => {
                       data-index={i}
                       data-image="singleImage"
                       onChange={onImageChange}
+                    />
+                  </>
+                )}
+                {/^h[1-6]$/.test(x) && (
+                  <>
+                    <div>
+                      <label>Header {i + 1}</label>
+                      <button
+                        type="button"
+                        data-value="remove"
+                        data-index={i}
+                        onClick={changeContentCount}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                    <input
+                      name="headerText"
+                      required
+                      type="text"
+                      data-index={i}
+                      onChange={onTextContentChange}
                     />
                   </>
                 )}

@@ -24,8 +24,32 @@
   color: var(--dark);
 }
 
-.content > h3 {
+.content > h2 {
   font-size: 32px;
+  font-family: initial;
+  color: var(--dark);
+}
+
+.content > h3 {
+  font-size: 24px;
+  font-family: initial;
+  color: var(--dark);
+}
+
+.content > h4 {
+  font-size: 20px;
+  font-family: initial;
+  color: var(--dark);
+}
+
+.content > h5 {
+  font-size: 16px;
+  font-family: initial;
+  color: var(--dark);
+}
+
+.content > h6 {
+  font-size: 12px;
   font-family: initial;
   color: var(--dark);
 }
